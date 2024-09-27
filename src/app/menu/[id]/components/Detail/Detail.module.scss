@@ -1,0 +1,50 @@
+.wrapper {
+    margin-top: 30px;
+    border-radius: 20px;
+}
+
+.name {
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.tags {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.brand {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+
+    span {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        color: #a6a6a6;
+    }
+}
+
+.desc {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.allergy {
+    margin-top: 12px;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    background-color: #f3f3f3;
+    color: #606060;
+}

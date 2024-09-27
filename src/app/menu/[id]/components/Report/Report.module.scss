@@ -1,0 +1,32 @@
+.sizes {
+    display: flex;
+}
+
+.size {
+    padding: 8px 4px;
+
+    &.active {
+        font-weight: 700;
+    }
+}
+
+.reportItem {
+    padding: 10px 0;
+    border-bottom: 1px solid #ebebeb;
+    font-size: 13px;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.reportItemInner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    dd {
+        font-weight: 700;
+    }
+}

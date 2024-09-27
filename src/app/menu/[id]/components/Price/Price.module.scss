@@ -1,0 +1,14 @@
+.wrapper {
+    padding: 20px 0;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 13px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

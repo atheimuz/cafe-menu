@@ -1,0 +1,30 @@
+{
+    "items": [
+        {
+            "name": "딸기 글레이즈드 크림 프라푸치노",
+            "brand": "스타벅스",
+            "thumbnail": "https://image.istarbucks.co.kr/upload/store/skuimg/2024/06/[9200000005369]_20240614143554454.jpg",
+            "report": {
+                "kcal": 340,
+                "sodium": 180,
+                "sugars": 42,
+                "protein": 6,
+                "caffeine": 100,
+                "fat": 14
+            }
+        },
+        {
+            "name": "라벤더 카페 브레베",
+            "brand": "스타벅스",
+            "thumbnail": "https://image.istarbucks.co.kr/upload/store/skuimg/2022/04/[9200000004119]_20220412083025862.png",
+            "report": {
+                "kcal": 340,
+                "sodium": 180,
+                "sugars": 42,
+                "protein": 6,
+                "caffeine": 100,
+                "fat": 14
+            }
+        }
+    ]
+}
