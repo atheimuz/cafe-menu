@@ -1,28 +1,31 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./Report.module.scss";
+import { Tab } from "@atheimuz/react-ui";
 import data from "@/app/menu/[id]/menu.json";
 import { convertTitleAndUnit } from "@/utils/report";
+import styles from "./Report.module.scss";
 
 const Report = () => {
     const [index, setIndex] = useState<number>(0);
 
     return (
         <div className={styles.wrapper}>
-            <ul className={styles.sizes}>
+            <Tab
+                value={index}
+                onChange={(val) => setIndex(val)}
+                className={styles.sizes}
+            >
                 {data.report.map((item, sizeIndex) => (
-                    <li
+                    <Tab.Item
                         key={item.size}
-                        className={`${styles.size} ${
-                            sizeIndex === index ? styles.active : ""
-                        }`}
+                        value={sizeIndex}
                         onClick={() => setIndex(sizeIndex)}
                     >
                         {item.size}
-                    </li>
+                    </Tab.Item>
                 ))}
-            </ul>
+            </Tab>
             <ul>
                 {Object.entries(data.report[index]).map(([key, value]) => {
                     const { title, unit } = convertTitleAndUnit(key);

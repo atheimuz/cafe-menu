@@ -1,6 +1,8 @@
+"use client";
+
+import { Tag } from "@atheimuz/react-ui";
 import styles from "./Detail.module.scss";
 import data from "@/app/menu/[id]/menu.json";
-import Tag from "@/components/Tag";
 
 const Detail = () => {
     return (
@@ -13,11 +15,6 @@ const Detail = () => {
                     <Tag>시즌 메뉴</Tag>
                 </li>
             </ul>
-            <p className={styles.brand}>{data.brand}</p>
-            <h1 className={styles.title}>
-                {data.name}
-                <span>{data.name_en}</span>
-            </h1>
             <h2 className={styles.desc}>{data.desc}</h2>
             <div className={styles.allergy}>
                 알레르기 유발: {data.allergies.join(", ")}

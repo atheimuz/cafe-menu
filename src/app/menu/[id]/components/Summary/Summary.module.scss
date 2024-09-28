@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+}
+
+.cover {
+    display: block;
+    width: 110px;
+    height: auto;
+    margin-right: 12px;
+    border-radius: 6px;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.brand {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+
+    span {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        color: #a6a6a6;
+    }
+}

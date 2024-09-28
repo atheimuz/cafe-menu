@@ -1,12 +1,8 @@
 .sizes {
-    display: flex;
-}
+    margin: 0 -20px;
 
-.size {
-    padding: 8px 4px;
-
-    &.active {
-        font-weight: 700;
+    button {
+        text-transform: capitalize;
     }
 }
 
