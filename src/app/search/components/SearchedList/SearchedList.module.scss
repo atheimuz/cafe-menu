@@ -1,0 +1,15 @@
+.wrapper {
+    padding: 20px 20px 0;
+}
+
+.items {
+    gap: 12px;
+}
+
+.item {
+    margin-bottom: 12px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
