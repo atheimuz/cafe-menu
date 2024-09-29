@@ -1,0 +1,31 @@
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin: 20px;
+}
+
+.item {
+    width: 25%;
+}
+
+.brand {
+    display: block;
+    padding: 12px 8px;
+    text-align: center;
+}
+
+.brandName {
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.brandLogo {
+    display: block;
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
