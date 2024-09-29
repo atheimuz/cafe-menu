@@ -18,7 +18,9 @@ const MenuItem = ({ name, brand, thumbnail, report }: Props) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.topArea}>
-                <img src={thumbnail} className={styles.thumbnail} />
+                <Link href="/menu/123">
+                    <img src={thumbnail} className={styles.thumbnail} />
+                </Link>
                 <div className={styles.content}>
                     <span className={styles.brand}>{brand}</span>
                     <p className={styles.title}>{name}</p>
