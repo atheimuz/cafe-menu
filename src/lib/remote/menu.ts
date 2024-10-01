@@ -1,9 +1,9 @@
 import axios from "axios";
 import { IMenu } from "@/models/menu";
 
-export const getMenusAPI = async () => {
-    const res = await axios.get("/api/menus");
-    const data: IMenu[] = res.data;
+export const getMenusAPI = async (query = {}) => {
+    const res = await axios.get("/api/menus", { params: query });
+    const data: { list: IMenu[] } = res.data;
 
     return data;
 };

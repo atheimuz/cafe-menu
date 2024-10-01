@@ -1,11 +1,27 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import mongoose from "mongoose";
 import connectToDatabase from "@/lib/mongodb";
 import Menu, { IMenuItem } from "@/models/menu";
 
-export async function GET() {
-    await connectToDatabase();
+export async function GET(request: NextRequest) {
+    const searchParams = request.nextUrl.searchParams;
+    const brandId = searchParams.get("brandId");
+    const category = searchParams.get("category");
+    const filter: any = {};
+
+    if (brandId) {
+        filter["brand"] = new mongoose.Types.ObjectId(brandId);
+    }
+
+    if (category) {
+        filter["category"] = category;
+    }
     try {
+        await connectToDatabase();
         const menus: IMenuItem[] = await Menu.aggregate([
+            {
+                $match: filter
+            },
             {
                 $project: {
                     id: 1,

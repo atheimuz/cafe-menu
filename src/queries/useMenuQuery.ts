@@ -4,10 +4,18 @@ import { getMenuAPI, getMenusAPI } from "@/lib/remote/menu";
 export const MENU_QUERY_KEY = "menu";
 export const MENUS_QUERY_KEY = "menus";
 
-export const useMenus = () => {
+export const useMenus = ({
+    brandId,
+    category,
+    name
+}: {
+    brandId?: string;
+    category?: string;
+    name?: string;
+} = {}) => {
     return useQuery({
-        queryKey: [MENUS_QUERY_KEY],
-        queryFn: getMenusAPI
+        queryKey: [MENUS_QUERY_KEY, name, brandId, category],
+        queryFn: () => getMenusAPI({ brandId, category, name })
     });
 };
 
