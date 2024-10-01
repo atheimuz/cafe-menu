@@ -20,3 +20,26 @@ export const convertBrandName = (name: string) => {
             return name;
     }
 };
+
+export const convertOption = (option: string) => {
+    switch (option) {
+        case "caffeine":
+            return "카페인";
+        case "decaf":
+            return "디카페인";
+        case "halfDecaf":
+            return "1/2 디카페인";
+        case "milk":
+            return "우유";
+        case "lowFat":
+            return "저지방";
+        case "fatless":
+            return "무지방";
+        case "soyMilk":
+            return "두유";
+        case "oats":
+            return "오트(귀리)";
+        default:
+            return option;
+    }
+};
