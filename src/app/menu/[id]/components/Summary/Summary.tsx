@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { convertBrandName } from "@/utils/brand";
 import { CgChevronRight } from "react-icons/cg";
 import styles from "./Summary.module.scss";
 
@@ -21,7 +22,7 @@ const Summary = ({ name, name_en, thumbnail, brand }: Props) => {
             />
             <div className={styles.text}>
                 <Link className={styles.brand} href={`/brand/${brand?._id}`}>
-                    {brand?.name}
+                    {convertBrandName(brand?.name)}
                     <CgChevronRight />
                 </Link>
                 <h1 className={styles.title}>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { CgChevronUp } from "react-icons/cg";
+import { convertBrandName } from "@/utils/brand";
 import { convertTitleAndUnit } from "@/utils/report";
 import { IMenuItem } from "@/models/menu";
 import styles from "./MenuItem.module.scss";
@@ -17,7 +18,9 @@ const MenuItem = ({ _id, name, brand, thumbnail, report }: IMenuItem) => {
                     <img src={thumbnail} className={styles.thumbnail} />
                 </Link>
                 <Link href={`/menu/${_id}`} className={styles.content}>
-                    <span className={styles.brand}>{brand?.name}</span>
+                    <span className={styles.brand}>
+                        {convertBrandName(brand?.name)}
+                    </span>
                     <p className={styles.title}>{name}</p>
                 </Link>
                 <button
