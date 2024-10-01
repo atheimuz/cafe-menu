@@ -4,27 +4,22 @@ import Link from "next/link";
 import { useState } from "react";
 import { CgChevronUp } from "react-icons/cg";
 import { convertTitleAndUnit } from "@/utils/report";
+import { IMenuItem } from "@/models/menu";
 import styles from "./MenuItem.module.scss";
 
-interface Props {
-    name: string;
-    brand: string;
-    thumbnail: string;
-    report: { [key: string]: number };
-}
-const MenuItem = ({ name, brand, thumbnail, report }: Props) => {
+const MenuItem = ({ _id, name, brand, thumbnail, report }: IMenuItem) => {
     const [moreStatus, setMoreStatus] = useState<boolean>(false);
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.topArea}>
-                <Link href="/menu/123">
+                <Link href={`/menu/${_id}`}>
                     <img src={thumbnail} className={styles.thumbnail} />
                 </Link>
-                <div className={styles.content}>
-                    <span className={styles.brand}>{brand}</span>
+                <Link href={`/menu/${_id}`} className={styles.content}>
+                    <span className={styles.brand}>{brand?.name}</span>
                     <p className={styles.title}>{name}</p>
-                </div>
+                </Link>
                 <button
                     className={`${styles.moreBtn} ${
                         moreStatus ? styles.active : ""

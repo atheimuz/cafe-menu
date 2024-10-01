@@ -1,24 +1,32 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CgChevronRight } from "react-icons/cg";
-import data from "@/app/menu/[id]/menu.json";
 import styles from "./Summary.module.scss";
 
-const Summary = () => {
+interface Props {
+    name: string;
+    name_en: string;
+    thumbnail: string;
+    brand: { _id: string; name: string };
+}
+const Summary = ({ name, name_en, thumbnail, brand }: Props) => {
     return (
         <div className={styles.wrapper}>
-            <img
+            <Image
+                src={thumbnail}
                 className={styles.cover}
-                src={data.thumbnail}
+                width={110}
+                height={110}
                 alt="제품 사진"
             />
             <div className={styles.text}>
-                <Link className={styles.brand} href="/brand/123">
-                    {data.brand}
+                <Link className={styles.brand} href={`/brand/${brand?._id}`}>
+                    {brand?.name}
                     <CgChevronRight />
                 </Link>
                 <h1 className={styles.title}>
-                    {data.name}
-                    <span>{data.name_en}</span>
+                    {name}
+                    <span>{name_en}</span>
                 </h1>
             </div>
         </div>

@@ -2,13 +2,16 @@
 
 import { useState } from "react";
 import { Tab } from "@atheimuz/react-ui";
-import data from "@/app/menu/[id]/menu.json";
 import { convertTitleAndUnit } from "@/utils/report";
 import styles from "./Report.module.scss";
 
-const Report = () => {
+interface Props {
+    report: { [key: string]: number | string }[];
+}
+const Report = ({ report }: Props) => {
     const [index, setIndex] = useState<number>(0);
 
+    if (!report?.length) return null;
     return (
         <div className={styles.wrapper}>
             <Tab
@@ -16,7 +19,7 @@ const Report = () => {
                 onChange={(val) => setIndex(val)}
                 className={styles.sizes}
             >
-                {data.report.map((item, sizeIndex) => (
+                {report.map((item, sizeIndex) => (
                     <Tab.Item
                         key={item.size}
                         value={sizeIndex}
@@ -27,11 +30,11 @@ const Report = () => {
                 ))}
             </Tab>
             <ul>
-                {Object.entries(data.report[index]).map(([key, value]) => {
+                {Object.entries(report[index]).map(([key, value]) => {
                     const { title, unit } = convertTitleAndUnit(key);
                     if (!title) return null;
                     return (
-                        <li className={styles.reportItem}>
+                        <li className={styles.reportItem} key={key}>
                             <dl className={styles.reportItemInner}>
                                 <dt>{title}</dt>
                                 <dd>

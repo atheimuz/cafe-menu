@@ -17,6 +17,7 @@
 }
 
 .content {
+    display: block;
     flex: 1;
 }
 
@@ -43,10 +44,13 @@
     }
 }
 
+.bottomArea {
+    margin-top: 10px;
+}
+
 .reportItems {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10px;
 }
 
 .reportItem {
