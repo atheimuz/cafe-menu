@@ -1,0 +1,19 @@
+.wrapper {
+    padding: 0 20px;
+}
+
+.tab {
+    margin: 0 -20px;
+}
+
+.items {
+    padding: 20px 0;
+}
+
+.item {
+    margin-bottom: 12px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
