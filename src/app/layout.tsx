@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./globals.css";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const queryClient = new QueryClient({
     defaultOptions: {
