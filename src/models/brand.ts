@@ -16,12 +16,14 @@ const BrandSchema: Schema<IBrand> = new mongoose.Schema({
     },
     options: [
         {
-            type: "caffeine",
-            options: ["decaf", "halfDecaf"]
-        },
-        {
-            type: "milk",
-            options: ["lowFat", "fatless", "soyMilk", "oats"]
+            type: {
+                type: String,
+                required: true
+            },
+            options: {
+                type: [String],
+                required: true
+            }
         }
     ]
 });
