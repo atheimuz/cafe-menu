@@ -38,7 +38,15 @@ export const convertOption = (option: string) => {
         case "soyMilk":
             return "두유";
         case "oats":
-            return "오트(귀리)";
+            return "오트(귀리) 밀크";
+        case "almond":
+            return "아몬드 밀크";
+        case "sugar":
+            return "당";
+        case "stevia":
+            return "스테비아";
+        case "lightVanillaSyrup":
+            return "라이트 바닐라 시럽";
         default:
             return option;
     }
