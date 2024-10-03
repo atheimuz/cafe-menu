@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 import { getMenuAPI, getMenusAPI } from "@/lib/remote/menu";
 
 export const MENU_QUERY_KEY = "menu";
@@ -20,9 +20,8 @@ export const useMenus = ({
 };
 
 export const useMenu = (menuId: string) => {
-    return useQuery({
+    return useSuspenseQuery({
         queryKey: [MENU_QUERY_KEY, menuId],
-        queryFn: () => getMenuAPI(menuId),
-        enabled: !!menuId
+        queryFn: () => getMenuAPI(menuId)
     });
 };

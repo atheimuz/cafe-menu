@@ -12,11 +12,7 @@ interface Props {
     id: string;
 }
 const MenuInfo = ({ id }: Props) => {
-    const { data, isFetching } = useMenu(id);
-    if (isFetching) {
-        // todo: skeleton
-        return null;
-    }
+    const { data } = useMenu(id);
 
     if (!data) {
         // todo: error component
