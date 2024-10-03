@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import Search from "@/app/components/Search";
 import BrandList, { BrandListSkeleton } from "@/app/components/BrandList";
-import FilteredMenuList from "@/app/components/FilteredMenuList";
 import styles from "./page.module.scss";
 
 export default function HomePage() {
@@ -11,7 +10,6 @@ export default function HomePage() {
             <Suspense fallback={<BrandListSkeleton />}>
                 <BrandList />
             </Suspense>
-            <FilteredMenuList />
         </div>
     );
 }

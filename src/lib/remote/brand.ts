@@ -1,7 +1,7 @@
 import client from "@/lib/remote/client";
 import { IBrand } from "@/models/brand";
 
-export const getBrandsAPI = async (brandId: string) => {
+export const getBrandsAPI = async () => {
     const res = await client.get("/api/brands");
     const data: { list: IBrand[] } = res.data;
 
