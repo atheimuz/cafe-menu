@@ -1,0 +1,32 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 160px;
+    padding: 4px 12px 4px 4px;
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    // background-color: #f4f4f4;
+}
+
+.thumbnail {
+    display: block;
+    width: 40px;
+    margin-right: 8px;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.type {
+    font-size: 10px;
+    text-transform: capitalize;
+}
+
+.name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    font-size: 12px;
+    font-weight: 700;
+}
