@@ -7,6 +7,7 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const brandId = searchParams.get("brandId");
     const category = searchParams.get("category");
+    const name = searchParams.get("name");
     const filter: any = {};
 
     if (brandId) {
@@ -16,6 +17,14 @@ export async function GET(request: NextRequest) {
     if (category) {
         filter["category"] = category;
     }
+
+    if (name) {
+        filter["name"] = {
+            $regex: name.replace(/\s+/g, "\\s*"),
+            $options: "i"
+        };
+    }
+
     try {
         await connectToDatabase();
         const menus: IMenuItem[] = await Menu.aggregate([
@@ -51,6 +60,9 @@ export async function GET(request: NextRequest) {
                     "brand.name": "$brandDetails.name",
                     report: 1
                 }
+            },
+            {
+                $sort: { name: 1 }
             }
         ]);
         return NextResponse.json({ list: menus });

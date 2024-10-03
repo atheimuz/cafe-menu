@@ -1,17 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { TextField } from "@atheimuz/react-ui";
 import { CiSearch } from "react-icons/ci";
 import styles from "./Search.module.scss";
 
-const Search = () => {
-    const searchParams = useSearchParams();
-
+interface Props {
+    keyword?: string;
+}
+const Search = ({ keyword }: Props) => {
     const router = useRouter();
     const [inputValue, setInputValue] = useState<string>("");
-    const keyword = searchParams.get("keyword");
 
     const handleSearch = () => {
         if (!inputValue) return;
@@ -47,10 +47,6 @@ const Search = () => {
                     </TextField.Addon>
                 </TextField.Input>
             </TextField>
-            {/* <h1 className={styles.title}>
-                프랜차이즈 커피들의{"\n"}
-                <span className={styles.point}>영양성분</span>을 살펴보세요!
-            </h1> */}
         </div>
     );
 };

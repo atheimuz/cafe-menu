@@ -1,14 +1,19 @@
 import Search from "@/app/components/Search";
 import SearchedList from "@/app/search/components/SearchedList";
-import Empty from "@/app/search/components/Empty";
 import styles from "./page.module.scss";
 
-export default function SearchPage() {
+export default function SearchPage({
+    searchParams
+}: {
+    searchParams: {
+        keyword?: string;
+    };
+}) {
+    const keyword = searchParams.keyword;
     return (
         <div className={styles.page}>
-            <Search />
-            {/* <Empty /> */}
-            <SearchedList />
+            <Search keyword={keyword} />
+            <SearchedList keyword={keyword} />
         </div>
     );
 }

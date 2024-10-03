@@ -1,9 +1,9 @@
 import client from "@/lib/remote/client";
-import { IMenu } from "@/models/menu";
+import { IMenu, IMenuItem } from "@/models/menu";
 
 export const getMenusAPI = async (query = {}) => {
     const res = await client.get("/api/menus", { params: query });
-    const data: { list: IMenu[] } = res.data;
+    const data: { list: IMenuItem[] } = res.data;
 
     return data;
 };
