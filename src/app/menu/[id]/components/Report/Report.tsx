@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Tab } from "@atheimuz/react-ui";
-import { convertTitleAndUnit } from "@/utils/report";
+import { convertTitleAndUnit } from "@/utils/menu";
 import styles from "./Report.module.scss";
 
 interface Props {
@@ -39,7 +39,9 @@ const Report = ({ report }: Props) => {
                                 <dt>{title}</dt>
                                 <dd>
                                     {value}
-                                    {unit}
+                                    {key === "capacity"
+                                        ? report[index].unit
+                                        : unit}
                                 </dd>
                             </dl>
                         </li>

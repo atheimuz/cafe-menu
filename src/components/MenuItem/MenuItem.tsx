@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { CgChevronUp } from "react-icons/cg";
 import { convertBrandName } from "@/utils/brand";
-import { convertTitleAndUnit } from "@/utils/report";
+import { convertTitleAndUnit } from "@/utils/menu";
 import { IMenuItem } from "@/models/menu";
 import styles from "./MenuItem.module.scss";
 
