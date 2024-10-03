@@ -34,6 +34,10 @@ interface IMenu extends Document {
         caffeine: number;
         saturatedFat: number;
     }[];
+    relatedMenus?: {
+        type: "ice" | "hot" | "sizeUp" | "sizeDown" | "decaf" | "caf";
+        menu: string;
+    }[];
 }
 
 interface IMenuItem {
@@ -82,6 +86,7 @@ const MenuSchema: Schema<IMenu> = new mongoose.Schema({
     },
     type: {
         type: String,
+        enum: ["ice", "hot"],
         required: true
     },
     category: {
@@ -116,7 +121,10 @@ const MenuSchema: Schema<IMenu> = new mongoose.Schema({
             {
                 size: String,
                 capacity: Number,
-                unit: String,
+                unit: {
+                    type: String,
+                    enum: ["ml", "oz"]
+                },
                 kcal: Number,
                 carbohydrate: Number,
                 sugars: Number,
@@ -130,7 +138,19 @@ const MenuSchema: Schema<IMenu> = new mongoose.Schema({
             }
         ],
         required: true
-    }
+    },
+    relatedMenus: [
+        {
+            type: {
+                type: String,
+                enum: ["ice", "hot", "sizeUp", "sizeDown", "decaf", "caf"] // enum으로 설정
+            },
+            menu: {
+                type: mongoose.Types.ObjectId,
+                ref: "Menu"
+            }
+        }
+    ]
 });
 
 const Menu: Model<IMenu> =

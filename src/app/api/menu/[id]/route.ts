@@ -11,33 +11,20 @@ export async function GET(
     try {
         const { id } = params;
         const menuId = new mongoose.Types.ObjectId(id);
-        const menu = await Menu.aggregate([
-            {
-                $match: { _id: menuId }
-            },
-            {
-                $lookup: {
-                    from: "brands",
-                    localField: "brand",
-                    foreignField: "_id",
-                    as: "brandDetails"
-                }
-            },
-            {
-                $unwind: "$brandDetails"
-            },
-            {
-                $addFields: {
-                    "brand._id": "$brandDetails._id",
-                    "brand.name": "$brandDetails.name"
-                }
-            }
-        ]);
+        const menu = await Menu.findById(menuId)
+            .populate({
+                path: "brand",
+                select: "_id name"
+            })
+            .populate({
+                path: "relatedMenus.menu",
+                select: "name thumbnail"
+            });
 
-        return NextResponse.json(menu[0]);
+        return NextResponse.json(menu);
     } catch (error) {
         return NextResponse.json(
-            { success: false, message: "Error fetching menus" },
+            { success: false, message: "Error fetching menu" },
             { status: 500 }
         );
     }
