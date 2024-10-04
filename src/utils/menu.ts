@@ -44,3 +44,14 @@ export const convertTitleAndUnit = (
             return { title: null, unit: null };
     }
 };
+
+export const convertCaution = (caution: string): string => {
+    switch (caution) {
+        case "zero":
+            return "대체당을 과다 섭취할 경우 소화불량이나 기타 부작용이 발생할 수 있으니 적정량을 섭취하세요.";
+        case "caffeine":
+            return "고카페인 음료는 과도한 섭취 시 불면증이나 심박수 증가를 유발할 수 있으니 주의하세요.";
+        default:
+            return caution;
+    }
+};

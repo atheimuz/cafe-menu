@@ -18,6 +18,7 @@ interface IMenu extends Document {
         size: "tall" | "grande" | "venti";
         price: number;
     }[];
+    cautions: string[];
     allergies: string[];
     report: {
         size: "tall" | "grande" | "venti";
@@ -112,10 +113,8 @@ const MenuSchema: Schema<IMenu> = new mongoose.Schema({
         ],
         required: true
     },
-    allergies: {
-        type: [String],
-        required: true
-    },
+    allergies: { type: [String] },
+    cautions: { type: [String] },
     report: {
         type: [
             {

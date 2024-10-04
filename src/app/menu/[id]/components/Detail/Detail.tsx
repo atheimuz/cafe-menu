@@ -1,14 +1,15 @@
 "use client";
 
-import { Tag, Message } from "@atheimuz/react-ui";
+import { Message, Tag } from "@atheimuz/react-ui";
+import { convertAllergy, convertCaution } from "@/utils/menu";
+import ItemTitle from "@/components/ItemTitle";
 import styles from "./Detail.module.scss";
 
 interface Props {
-    type: "ice" | "hot";
     desc: string;
-    allergies: string[];
+    cautions?: string[];
 }
-const Detail = ({ type, desc, allergies }: Props) => {
+const Detail = ({ desc, cautions, allergies, children }: Props) => {
     return (
         <div className={styles.wrapper}>
             <ul className={styles.tags}>
@@ -18,10 +19,15 @@ const Detail = ({ type, desc, allergies }: Props) => {
                 </li>
             </ul>
             <h2 className={styles.desc}>{desc}</h2>
-            {allergies?.length > 0 && (
-                <Message color="gray" className={styles.allergy}>
-                    알레르기 유발: {allergies.join(", ")}
+            {cautions?.length > 0 && (
+                <div className={styles.messages}>
+                    {cautions.map((item) => (
+                        <Message color="red" key={item}>
+                            {convertCaution(item)}
                 </Message>
+                    ))}
+                </div>
+            )}
             )}
         </div>
     );

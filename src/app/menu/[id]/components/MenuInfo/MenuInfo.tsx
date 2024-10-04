@@ -28,8 +28,8 @@ const MenuInfo = ({ id }: Props) => {
             />
             <RelatedMenuList items={data?.relatedMenus} />
             <Detail
-                type={data?.type}
                 desc={data?.desc}
+                cautions={data?.cautions}
                 allergies={data?.allergies}
             />
             <Price prices={data?.prices} />
