@@ -1,35 +1,46 @@
 "use client";
 
-import { useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Tab } from "@atheimuz/react-ui";
 import MenuItem from "@/components/MenuItem";
 import { useMenus } from "@/queries/useMenuQuery";
 import styles from "./FilteredMenuList.module.scss";
 import { IMenuItem } from "@/models/menu";
+import { MENU_CATEGORY_LIST } from "@/schema/menu";
 import MenuItemEmpty from "@/components/MenuItemEmpty";
 
 const FilteredMenuList = () => {
+    const router = useRouter();
+    const searchParams = useSearchParams();
     const params = useParams();
+    const category =
+        searchParams.get("category") || MENU_CATEGORY_LIST[0].value;
     const brandId = typeof params.id === "string" ? params.id : "";
 
-    const [tab, setTab] = useState<string>("coffee");
-    const { data, isFetching } = useMenus({ brandId, category: tab });
+    const { data } = useMenus({ brandId, category });
+
+    const handleSearch = (newCategory: string) => {
+        const currentParams = new URLSearchParams(searchParams.toString());
+        currentParams.set("category", newCategory);
+
+        router.replace(`?${currentParams.toString()}`);
+    };
 
     // todo: isFetching
     return (
         <div className={styles.wrapper}>
-            <Tab value={tab} onChange={(val: string) => setTab(val)}>
-                <Tab.Item value="coffee">커피</Tab.Item>
-                <Tab.Item value="coldbrew">콜드브루</Tab.Item>
-                <Tab.Item value="tea">티</Tab.Item>
-                <Tab.Item value="juice">주스</Tab.Item>
-                <Tab.Item value="drink">음료</Tab.Item>
+            <Tab value={category} onChange={(val: string) => handleSearch(val)}>
+                {MENU_CATEGORY_LIST.map((item) => (
+                    <Tab.Item value={item.value} key={item.value}>
+                        {item.label}
+                    </Tab.Item>
+                ))}
             </Tab>
             {data?.list?.length > 0 ? (
                 <ul className={styles.items}>
                     {data.list.map((item: IMenuItem) => (
-                        <li className={styles.item} key={item.name}>
+                        <li className={styles.item} key={item._id}>
                             <MenuItem {...item} />
                         </li>
                     ))}
