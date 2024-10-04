@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     max-width: 160px;
+    height: 72px;
     padding: 4px 12px 4px 4px;
     border: 1px solid #ebebeb;
     border-radius: 10px;
@@ -10,7 +11,7 @@
 
 .thumbnail {
     display: block;
-    width: 40px;
+    height: 100%;
     margin-right: 8px;
     aspect-ratio: 4/5;
     object-fit: cover;
@@ -29,4 +30,9 @@
     -webkit-box-orient: vertical;
     font-size: 12px;
     font-weight: 700;
+}
+
+.skeleton {
+    width: 140px;
+    height: 72px;
 }
