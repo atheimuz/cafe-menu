@@ -8,27 +8,37 @@ import styles from "./Detail.module.scss";
 interface Props {
     desc: string;
     cautions?: string[];
+    allergies?: string[];
+    children?: React.ReactElement;
 }
 const Detail = ({ desc, cautions, allergies, children }: Props) => {
     return (
         <div className={styles.wrapper}>
-            <ul className={styles.tags}>
-                <li>
-                    {type === "ice" && <Tag color="blue">차가운 음료</Tag>}
-                    {type === "hot" && <Tag color="red">따뜻한 음료</Tag>}
-                </li>
-            </ul>
             <h2 className={styles.desc}>{desc}</h2>
             {cautions?.length > 0 && (
                 <div className={styles.messages}>
                     {cautions.map((item) => (
                         <Message color="red" key={item}>
                             {convertCaution(item)}
-                </Message>
+                        </Message>
                     ))}
                 </div>
             )}
-            )}
+            {children}
+            <div className={styles.allergies}>
+                <ItemTitle>알레르기 유발</ItemTitle>
+                {allergies?.length > 0 ? (
+                    <ul className={styles.items}>
+                        {allergies.map((item: string) => (
+                            <li key={item}>
+                                <Tag>{convertAllergy(item)}</Tag>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p className={styles.empty}>없음</p>
+                )}
+            </div>
         </div>
     );
 };

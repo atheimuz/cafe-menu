@@ -1,16 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { Tag } from "@atheimuz/react-ui";
 import { convertBrandName } from "@/utils/brand";
 import { CgChevronRight } from "react-icons/cg";
 import styles from "./Summary.module.scss";
 
 interface Props {
+    type: "ice" | "hot";
     name: string;
     name_en: string;
     thumbnail: string;
     brand: { _id: string; name: string };
 }
-const Summary = ({ name, name_en, thumbnail, brand }: Props) => {
+const Summary = ({ type, name, name_en, thumbnail, brand }: Props) => {
     return (
         <div className={styles.wrapper}>
             <Image
@@ -29,6 +33,10 @@ const Summary = ({ name, name_en, thumbnail, brand }: Props) => {
                     {name}
                     <span>{name_en}</span>
                 </h1>
+                <div className={styles.tag}>
+                    {type === "ice" && <Tag color="blue">차가운 음료</Tag>}
+                    {type === "hot" && <Tag color="red">따뜻한 음료</Tag>}
+                </div>
             </div>
         </div>
     );

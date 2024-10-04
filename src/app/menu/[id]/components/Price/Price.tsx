@@ -1,5 +1,6 @@
-import styles from "./Price.module.scss";
 import { numberWithCommas } from "@/utils/common";
+import ItemTitle from "@/components/ItemTitle";
+import styles from "./Price.module.scss";
 
 interface Props {
     prices: { size: string; price: number }[];
@@ -8,6 +9,7 @@ interface Props {
 const Price = ({ prices }: Props) => {
     return (
         <div className={styles.wrapper}>
+            <ItemTitle>가격</ItemTitle>
             <ul>
                 {prices?.map((item) => (
                     <li key={item.size} className={styles.item}>

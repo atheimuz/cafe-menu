@@ -17,13 +17,15 @@ const RelatedMenuList = ({ items }: Props) => {
     return (
         <div className={styles.wrapper}>
             <ItemTitle>연관 상품</ItemTitle>
-            <ul className={styles.items}>
-                {items.map((item) => (
-                    <li key={item.menu}>
-                        <RelatedMenuItem {...item} />
-                    </li>
-                ))}
-            </ul>
+            <div className={styles.scrollArea}>
+                <ul className={styles.items}>
+                    {items.map((item) => (
+                        <li key={item.menu}>
+                            <RelatedMenuItem {...item} />
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };

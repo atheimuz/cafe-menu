@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { Tab } from "@atheimuz/react-ui";
 import { convertTitleAndUnit } from "@/utils/menu";
+import { convertBrandName } from "@/utils/brand";
 import styles from "./Report.module.scss";
 
 interface Props {
+    brandName: string;
     report: { [key: string]: number | string }[];
 }
-const Report = ({ report }: Props) => {
+const Report = ({ brandName, report }: Props) => {
     const [index, setIndex] = useState<number>(0);
 
     if (!report?.length) return null;
@@ -48,6 +50,9 @@ const Report = ({ report }: Props) => {
                     );
                 })}
             </ul>
+            <p className={styles.caution}>
+                * 출처: {convertBrandName(brandName)} 공식 홈페이지(앱)
+            </p>
         </div>
     );
 };

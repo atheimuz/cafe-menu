@@ -21,6 +21,7 @@ const MenuInfo = ({ id }: Props) => {
     return (
         <div className={styles.wrapper}>
             <Summary
+                type={data?.type}
                 name={data?.name}
                 name_en={data?.name_en}
                 thumbnail={data?.thumbnail}
@@ -31,9 +32,10 @@ const MenuInfo = ({ id }: Props) => {
                 desc={data?.desc}
                 cautions={data?.cautions}
                 allergies={data?.allergies}
-            />
-            <Price prices={data?.prices} />
-            <Report report={data?.report} />
+            >
+                <Price prices={data?.prices} />
+            </Detail>
+            <Report brandName={data?.brand?.name} report={data?.report} />
         </div>
     );
 };
