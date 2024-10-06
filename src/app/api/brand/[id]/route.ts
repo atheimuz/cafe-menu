@@ -14,6 +14,7 @@ export async function GET(
         const brand = await Brand.findOne({ _id: brandId }).select([
             "_id",
             "name",
+            "link",
             "options"
         ]);
         return NextResponse.json(brand);

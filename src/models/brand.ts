@@ -3,6 +3,7 @@ import mongoose, { Document, Model, Schema } from "mongoose";
 interface IBrand extends Document {
     _id: string;
     name: string;
+    link: string;
     options: {
         type: string;
         options: string[];
@@ -11,6 +12,10 @@ interface IBrand extends Document {
 
 const BrandSchema: Schema<IBrand> = new mongoose.Schema({
     name: {
+        type: String,
+        required: true
+    },
+    link: {
         type: String,
         required: true
     },

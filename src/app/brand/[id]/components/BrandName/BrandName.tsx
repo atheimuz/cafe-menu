@@ -4,8 +4,9 @@ import styles from "./BrandName.module.scss";
 
 interface Props {
     name: string;
+    link: string;
 }
-const BrandName = ({ name }: Props) => {
+const BrandName = ({ name, link }: Props) => {
     return (
         <div className={styles.wrapper}>
             <img
@@ -14,6 +15,9 @@ const BrandName = ({ name }: Props) => {
                 className={styles.icon}
             />
             <h1 className={styles.brand}>{convertBrandName(name)}</h1>
+            <a className={styles.link} href={link} target="_blank">
+                공식 홈페이지
+            </a>
         </div>
     );
 };

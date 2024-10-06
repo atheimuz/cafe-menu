@@ -9,7 +9,7 @@ const BrandInfo = ({ id }: { id: string }) => {
 
     return (
         <>
-            <BrandName name={data?.name} />
+            <BrandName name={data?.name} link={data?.link} />
             <Options options={data?.options} />
         </>
     );

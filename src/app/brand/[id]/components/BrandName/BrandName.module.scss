@@ -19,3 +19,16 @@
     flex: 1;
     font-size: 16px;
 }
+
+.link {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    background-color: #f7f7f7;
+
+    &:hover {
+        background-color: #eeeeee;
+    }
+}
