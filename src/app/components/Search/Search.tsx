@@ -16,6 +16,7 @@ const Search = ({ keyword }: Props) => {
     const handleSearch = () => {
         if (!inputValue) return;
         router.push(`/search?keyword=${inputValue}`);
+        document.activeElement?.blur();
     };
 
     useEffect(() => {
