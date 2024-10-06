@@ -7,7 +7,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
-            refetchOnWindowFocus: false
+            refetchOnWindowFocus: false,
+            staleTime: 20 * 60 * 1000
         }
     }
 });
