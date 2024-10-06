@@ -1,19 +1,43 @@
 export const convertRelatedType = (type: string): string => {
     switch (type) {
         case "ice":
-            return "아이스";
+            return "차가운 음료";
         case "hot":
-            return "핫";
+            return "따뜻한 음료";
         case "sizeUp":
-            return "사이즈 업";
+            return "사이즈 증가";
         case "sizeDown":
-            return "사이즈 다운";
+            return "사이즈 감소";
         case "caf":
-            return "카페인";
+            return "카페인 증가";
         case "decaf":
-            return "디카페인";
+            return "카페인 감소";
+        case "sugarDown":
+            return "당류 감소";
+        case "sugarUp":
+            return "당류 증가";
         default:
             return type;
+    }
+};
+
+export const convertRelatedTypeTagColor = (type: string): string => {
+    switch (type) {
+        case "ice":
+            return "blue";
+        case "hot":
+            return "red";
+        case "sizeUp":
+        case "sizeDown":
+            return "green";
+        case "caf":
+        case "decaf":
+            return "yellow";
+        case "sugarDown":
+        case "sugarUp":
+            return "orange";
+        default:
+            return "gray";
     }
 };
 

@@ -45,8 +45,18 @@ export const convertOption = (option: string) => {
             return "당";
         case "stevia":
             return "스테비아";
-        case "lightVanillaSyrup":
+        case "almond":
+            return "아몬드 시럽";
+        case "honey":
+            return "꿀";
+        case "caramel":
+            return "카라멜 시럽";
+        case "vanilla":
+            return "바닐라 시럽";
+        case "lightVanilla":
             return "라이트 바닐라 시럽";
+        case "hazelnut":
+            return "헤이즐넛 시럽";
         default:
             return option;
     }

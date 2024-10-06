@@ -142,7 +142,16 @@ const MenuSchema: Schema<IMenu> = new mongoose.Schema({
         {
             type: {
                 type: String,
-                enum: ["ice", "hot", "sizeUp", "sizeDown", "decaf", "caf"] // enum으로 설정
+                enum: [
+                    "ice",
+                    "hot",
+                    "sizeUp",
+                    "sizeDown",
+                    "decaf",
+                    "caf",
+                    "sugarUp",
+                    "sugarDown"
+                ]
             },
             menu: {
                 type: mongoose.Types.ObjectId,

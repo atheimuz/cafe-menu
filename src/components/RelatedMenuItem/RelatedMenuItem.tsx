@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { convertRelatedType } from "@/utils/menu";
+import { Tag } from "@atheimuz/react-ui";
+import { convertRelatedType, convertRelatedTypeTagColor } from "@/utils/menu";
 import styles from "./RelatedMenuItem.module.scss";
 
 interface Props {
@@ -15,7 +18,11 @@ const RelatedMenuItem = ({ type, menu }: Props) => {
         <Link href={`/menu/${menu?._id}`} className={styles.wrapper}>
             <img src={menu?.thumbnail} className={styles.thumbnail} />
             <div className={styles.textBox}>
-                <span className={styles.type}>{convertRelatedType(type)}</span>
+                <span className={styles.type}>
+                    <Tag size="small" color={convertRelatedTypeTagColor(type)}>
+                        {convertRelatedType(type)}
+                    </Tag>
+                </span>
                 <p className={styles.name}>{menu?.name}</p>
             </div>
         </Link>
