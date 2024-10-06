@@ -1,15 +1,19 @@
+@import "@/styles/utils";
+
 .sizes {
     margin: 0 -20px;
+    font-size: 16px;
 
     button {
+        font-size: inherit;
         text-transform: capitalize;
     }
 }
 
 .reportItem {
-    padding: 10px 0;
-    border-bottom: 1px solid #ebebeb;
-    font-size: 13px;
+    padding: 14px 0;
+    border-bottom: 1px solid $gray-1;
+    font-size: 14px;
 
     &:last-child {
         border-bottom: none;
@@ -25,4 +29,16 @@
     dd {
         font-weight: 700;
     }
+}
+
+.empty {
+    font-size: 14px;
+    color: $gray-3;
+}
+
+.caution {
+    margin-top: 8px;
+    font-size: 13px;
+    text-align: right;
+    color: $gray-3;
 }

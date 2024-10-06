@@ -6,13 +6,15 @@ const RelatedMenuListSkeleton = () => {
     return (
         <div className={styles.wrapper}>
             <ItemTitle>연관 상품</ItemTitle>
-            <ul className={styles.items}>
-                {[0, 1].map((item) => (
-                    <li key={item}>
-                        <RelatedMenuItemSkeleton />
-                    </li>
-                ))}
-            </ul>
+            <div className={styles.scrollArea}>
+                <ul className={styles.items}>
+                    {[0, 1].map((item) => (
+                        <li key={item}>
+                            <RelatedMenuItemSkeleton />
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };

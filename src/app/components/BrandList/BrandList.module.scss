@@ -1,8 +1,14 @@
+@import "@/styles/utils";
+
+.wrapper {
+    padding: 0 20px;
+}
+
 .items {
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    margin: 20px;
+    margin: 40px -4px 0;
 }
 
 .item {
@@ -11,21 +17,27 @@
 
 .brand {
     display: block;
-    padding: 12px 8px;
+    padding: 12px 4px;
     text-align: center;
 }
 
 .brandName {
-    margin-top: 6px;
-    font-size: 12px;
+    margin-top: 8px;
+    font-size: 14px;
     font-weight: 500;
 }
 
 .brandLogo {
     display: block;
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     margin: 0 auto;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.caution {
+    margin-top: 20px;
+    font-size: 14px;
+    color: $gray-3;
 }

@@ -1,26 +1,29 @@
+@import "@/styles/utils";
+
 .wrapper {
     display: flex;
     align-items: center;
-    max-width: 160px;
-    height: 72px;
+    max-width: 200px;
+    height: 80px;
     padding: 4px 12px 4px 4px;
-    border: 1px solid #ebebeb;
+    border: 1px solid $gray-1;
     border-radius: 10px;
-    // background-color: #f4f4f4;
 }
 
 .thumbnail {
     display: block;
     height: 100%;
-    margin-right: 8px;
+    margin-right: 12px;
     aspect-ratio: 4/5;
     object-fit: cover;
     border-radius: 10px;
 }
 
 .type {
-    font-size: 10px;
-    text-transform: capitalize;
+    span {
+        padding: 1px 3px;
+        font-size: 11px;
+    }
 }
 
 .name {
@@ -28,11 +31,12 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
     -webkit-box-orient: vertical;
-    font-size: 12px;
+    margin-top: 4px;
+    font-size: 14px;
     font-weight: 700;
 }
 
 .skeleton {
     width: 140px;
-    height: 72px;
+    height: 80px;
 }

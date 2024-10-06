@@ -1,15 +1,17 @@
+@import "@/styles/utils";
+
 .wrapper {
     display: flex;
     align-items: center;
     margin: 0 20px;
     padding: 8px 0 12px;
-    border-bottom: 1px solid #ebebeb;
+    border-bottom: 1px solid $gray-1;
 }
 
 .icon {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-right: 12px;
     border-radius: 50%;
     object-fit: cover;
@@ -17,18 +19,18 @@
 
 .brand {
     flex: 1;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .link {
     display: flex;
     align-items: center;
-    padding: 6px 8px;
+    padding: 8px 12px;
     border-radius: 6px;
-    font-size: 12px;
-    background-color: #f7f7f7;
+    font-size: 13px;
+    background-color: $gray-0;
 
     &:hover {
-        background-color: #eeeeee;
+        background-color: $gray-1;
     }
 }

@@ -5,11 +5,11 @@ const BrandListSkeleton = () => {
     return (
         <div className={styles.wrapper}>
             <ul className={styles.items}>
-                {[0, 1, 2, 3].map((item) => (
-                    <li key={item} className={styles.item}>
+                {new Array(8).fill(0).map((_, index) => (
+                    <li key={index} className={styles.item}>
                         <div className={styles.brand}>
                             <div className={styles.brandLogo}>
-                                <Skeleton width={28} height={28} circle />
+                                <Skeleton width={36} height={36} circle />
                             </div>
 
                             <p className={styles.brandName}>

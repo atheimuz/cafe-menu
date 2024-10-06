@@ -34,8 +34,16 @@ const Summary = ({ type, name, name_en, thumbnail, brand }: Props) => {
                     <span>{name_en}</span>
                 </h1>
                 <div className={styles.tag}>
-                    {type === "ice" && <Tag color="blue">차가운 음료</Tag>}
-                    {type === "hot" && <Tag color="red">따뜻한 음료</Tag>}
+                    {type === "ice" && (
+                        <Tag size="medium" color="blue">
+                            차가운 음료
+                        </Tag>
+                    )}
+                    {type === "hot" && (
+                        <Tag size="medium" color="red">
+                            따뜻한 음료
+                        </Tag>
+                    )}
                 </div>
             </div>
         </div>

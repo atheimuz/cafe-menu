@@ -5,7 +5,7 @@
 .scrollArea {
     overflow-x: auto;
     margin: 0 -20px;
-    padding: 0 20px;
+    padding-bottom: 4px;
 }
 
 .items {
@@ -13,4 +13,5 @@
     align-items: center;
     gap: 8px;
     width: max-content;
+    padding: 0 20px;
 }

@@ -1,12 +1,12 @@
 .wrapper {
-    margin-top: 20px;
+    margin-top: 24px;
 }
 
 .item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 6px;
-    font-size: 13px;
+    margin-bottom: 8px;
+    font-size: 14px;
     text-transform: capitalize;
 
     &:last-child {
@@ -15,5 +15,5 @@
 }
 
 .skeleton {
-    font-size: 13px;
+    font-size: 15px;
 }

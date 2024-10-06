@@ -15,23 +15,29 @@ const Options = ({ options }: Props) => {
     return (
         <div className={styles.wrapper}>
             <ItemTitle>옵션 제공</ItemTitle>
-            <ul className={styles.options}>
-                {options?.map((item) => (
-                    <li className={styles.option}>
-                        <img
-                            className={styles.icon}
-                            src={icons[item.type]}
-                            alt={convertOption(item.type)}
-                        />
-                        <dl>
-                            <dt>{convertOption(item.type)}</dt>
-                            {item.options.map((option) => (
-                                <dd key={option}>{convertOption(option)}</dd>
-                            ))}
-                        </dl>
-                    </li>
-                ))}
-            </ul>
+            <div className={styles.scrollArea}>
+                <ul className={styles.options}>
+                    {options?.map((item) => (
+                        <li className={styles.option} key={item.type}>
+                            <img
+                                className={styles.icon}
+                                src={icons[item.type]}
+                                alt={convertOption(item.type)}
+                            />
+                            <p className={styles.type}>
+                                {convertOption(item.type)}
+                            </p>
+                            <ul>
+                                {item.options.map((option) => (
+                                    <li key={option}>
+                                        {convertOption(option)}
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };
