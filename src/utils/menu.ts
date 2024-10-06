@@ -55,3 +55,24 @@ export const convertCaution = (caution: string): string => {
             return caution;
     }
 };
+
+export const convertAllergy = (allergy: string): string => {
+    switch (allergy) {
+        case "milk":
+            return "우유";
+        case "bean":
+            return "대두";
+        case "egg":
+            return "달걀";
+        case "wheat":
+            return "밀";
+        case "peach":
+            return "복숭아";
+        case "almond":
+            return "아몬드";
+        case "sulphuricAcid":
+            return "아황산류";
+        default:
+            return allergy;
+    }
+};
