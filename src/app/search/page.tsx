@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import Loading from "@/components/Loading";
 import Search from "@/app/components/Search";
 import SearchedList from "@/app/search/components/SearchedList";
 import styles from "./page.module.scss";
@@ -28,7 +30,9 @@ export default function SearchPage({
     return (
         <div className={styles.page}>
             <Search keyword={keyword} />
-            <SearchedList keyword={keyword} />
+            <Suspense fallback={<Loading />}>
+                <SearchedList keyword={keyword} />
+            </Suspense>
         </div>
     );
 }
