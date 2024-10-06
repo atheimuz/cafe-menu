@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import BrandInfo, {
     BrandInfoSkeleton
 } from "@/app/brand/[id]/components/BrandInfo";
+import Loading from "@/components/Loading";
 import FilteredMenuList from "@/app/brand/[id]/components/FilteredMenuList";
 import { convertBrandName } from "@/utils/brand";
 import { getBrandAPI } from "@/lib/remote/brand";
@@ -30,7 +31,9 @@ export default async function BrandPage({
                 <BrandInfo id={params.id} />
             </Suspense>
             <div className={styles.content}>
-                <FilteredMenuList />
+                <Suspense fallback={<Loading />}>
+                    <FilteredMenuList />
+                </Suspense>
             </div>
         </>
     );
