@@ -3,7 +3,7 @@ import { IMenu, IMenuItem } from "@/models/menu";
 
 export const getMenusAPI = async (query = {}) => {
     const res = await client.get("/api/menus", { params: query });
-    const data: { list: IMenuItem[] } = res.data;
+    const data: { totalCounts: number; list: IMenuItem[] } = res.data;
 
     return data;
 };

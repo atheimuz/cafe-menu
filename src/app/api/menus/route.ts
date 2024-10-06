@@ -8,6 +8,8 @@ export async function GET(request: NextRequest) {
     const brandId = searchParams.get("brandId");
     const category = searchParams.get("category");
     const name = searchParams.get("name");
+    const skip = searchParams.get("skip");
+    const limit = searchParams.get("limit");
     const filter: any = {};
 
     if (brandId) {
@@ -27,6 +29,12 @@ export async function GET(request: NextRequest) {
 
     try {
         await connectToDatabase();
+        const totalCounts = await Menu.countDocuments(filter);
+
+        if (!totalCounts) {
+            return NextResponse.json({ totalCounts, list: [] });
+        }
+
         const menus: IMenuItem[] = await Menu.aggregate([
             {
                 $match: filter
@@ -63,9 +71,15 @@ export async function GET(request: NextRequest) {
             },
             {
                 $sort: { name: 1 }
+            },
+            {
+                $skip: Number(skip) || 0
+            },
+            {
+                $limit: Number(limit) || 20
             }
         ]);
-        return NextResponse.json({ list: menus });
+        return NextResponse.json({ totalCounts, list: menus });
     } catch (error) {
         return NextResponse.json(
             { success: false, message: "Error fetching menus" },

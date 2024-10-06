@@ -1,14 +1,17 @@
 "use client";
 
+import { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { Tab } from "@atheimuz/react-ui";
-import MenuItem from "@/components/MenuItem";
 import { useMenus } from "@/queries/useMenuQuery";
-import styles from "./FilteredMenuList.module.scss";
 import { IMenuItem } from "@/models/menu";
 import { MENU_CATEGORY_LIST } from "@/schema/menu";
+import useScrollToBottom from "@/hooks/useScrollToBottom";
+import Loading from "@/components/Loading";
+import MenuItem from "@/components/MenuItem";
 import MenuItemEmpty from "@/components/MenuItemEmpty";
+import styles from "./FilteredMenuList.module.scss";
 
 const FilteredMenuList = () => {
     const router = useRouter();
@@ -17,8 +20,13 @@ const FilteredMenuList = () => {
     const category =
         searchParams.get("category") || MENU_CATEGORY_LIST[0].value;
     const brandId = typeof params.id === "string" ? params.id : "";
+    const isBottom = useScrollToBottom();
 
-    const { data } = useMenus({ brandId, category });
+    const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useMenus({
+        brandId,
+        category,
+        limit: 20
+    });
 
     const handleSearch = (newCategory: string) => {
         const currentParams = new URLSearchParams(searchParams.toString());
@@ -27,7 +35,12 @@ const FilteredMenuList = () => {
         router.replace(`?${currentParams.toString()}`);
     };
 
-    // todo: isFetching
+    useEffect(() => {
+        if (isBottom && hasNextPage) {
+            fetchNextPage();
+        }
+    }, [isBottom]);
+
     return (
         <div className={styles.wrapper}>
             <Tab value={category} onChange={(val: string) => handleSearch(val)}>
@@ -37,17 +50,20 @@ const FilteredMenuList = () => {
                     </Tab.Item>
                 ))}
             </Tab>
-            {data?.list?.length > 0 ? (
+            {data.pages.length > 0 ? (
                 <ul className={styles.items}>
-                    {data.list.map((item: IMenuItem) => (
-                        <li className={styles.item} key={item._id}>
-                            <MenuItem {...item} />
-                        </li>
-                    ))}
+                    {data.pages.map((page) =>
+                        page?.list?.map((item: IMenuItem) => (
+                            <li className={styles.item} key={item._id}>
+                                <MenuItem {...item} />
+                            </li>
+                        ))
+                    )}
                 </ul>
             ) : (
                 <MenuItemEmpty />
             )}
+            {isFetchingNextPage && <Loading />}
         </div>
     );
 };
