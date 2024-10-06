@@ -50,7 +50,7 @@ const FilteredMenuList = () => {
                     </Tab.Item>
                 ))}
             </Tab>
-            {data.pages.length > 0 ? (
+            {data.pages[0]?.list?.length > 0 ? (
                 <ul className={styles.items}>
                     {data.pages.map((page) =>
                         page?.list?.map((item: IMenuItem) => (

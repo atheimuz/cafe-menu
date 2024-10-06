@@ -30,6 +30,9 @@ const BrandList = () => {
                     </li>
                 ))}
             </ul>
+            <p className={styles.caution}>
+                * 더 다양한 브랜드들이 추가될 예정이에요
+            </p>
         </div>
     );
 };

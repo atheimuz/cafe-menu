@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Tab } from "@atheimuz/react-ui";
 import { convertTitleAndUnit } from "@/utils/menu";
 import { convertBrandName } from "@/utils/brand";
+import ItemTitle from "@/components/ItemTitle";
 import styles from "./Report.module.scss";
 
 interface Props {
@@ -13,7 +14,16 @@ interface Props {
 const Report = ({ brandName, report }: Props) => {
     const [index, setIndex] = useState<number>(0);
 
-    if (!report?.length) return null;
+    if (!report?.length)
+        return (
+            <div className={styles.wrapper}>
+                <ItemTitle>영양 성분</ItemTitle>
+                <p className={styles.empty}>
+                    브랜드에서 정보를 제공하고 있지 않아요
+                </p>
+            </div>
+        );
+
     return (
         <div className={styles.wrapper}>
             <Tab

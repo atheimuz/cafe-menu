@@ -26,7 +26,7 @@ const SearchedList = ({ keyword }: Props) => {
         }
     }, [isBottom]);
 
-    if (!data.pages.length) {
+    if (!data.pages[0]?.list?.length) {
         return <Empty />;
     }
 

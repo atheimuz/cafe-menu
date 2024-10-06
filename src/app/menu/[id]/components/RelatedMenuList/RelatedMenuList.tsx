@@ -20,7 +20,7 @@ const RelatedMenuList = ({ items }: Props) => {
             <div className={styles.scrollArea}>
                 <ul className={styles.items}>
                     {items.map((item) => (
-                        <li key={item.menu}>
+                        <li key={item.menu._id}>
                             <RelatedMenuItem {...item} />
                         </li>
                     ))}
