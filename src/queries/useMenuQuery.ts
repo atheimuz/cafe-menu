@@ -17,7 +17,7 @@ export const useMenus = ({
     category?: string;
     name?: string;
     limit: number;
-} = {}) => {
+}) => {
     return useSuspenseInfiniteQuery({
         queryKey: [MENUS_QUERY_KEY, name, brandId, category],
         queryFn: async ({ pageParam }) =>

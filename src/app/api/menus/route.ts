@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     const name = searchParams.get("name");
     const skip = searchParams.get("skip");
     const limit = searchParams.get("limit");
-    const filter: any = {};
+    const filter: { [key: string]: unknown } = {};
 
     if (brandId) {
         filter["brand"] = new mongoose.Types.ObjectId(brandId);
@@ -81,8 +81,12 @@ export async function GET(request: NextRequest) {
         ]);
         return NextResponse.json({ totalCounts, list: menus });
     } catch (error) {
+        const err = error as Error;
         return NextResponse.json(
-            { success: false, message: "Error fetching menus" },
+            {
+                success: false,
+                message: `Error fetching menus. detail: ${err.message}`
+            },
             { status: 500 }
         );
     }

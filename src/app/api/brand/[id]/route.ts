@@ -19,8 +19,12 @@ export async function GET(
         ]);
         return NextResponse.json(brand);
     } catch (error) {
+        const err = error as Error;
         return NextResponse.json(
-            { success: false, message: "Error fetching brand" },
+            {
+                success: false,
+                message: `Error fetching brand. detail: ${err.message}`
+            },
             { status: 500 }
         );
     }

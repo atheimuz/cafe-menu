@@ -37,7 +37,11 @@ interface IMenu extends Document {
     }[];
     relatedMenus?: {
         type: "ice" | "hot" | "sizeUp" | "sizeDown" | "decaf" | "caf";
-        menu: string;
+        menu: {
+            _id: string;
+            name: string;
+            thumbnail: string;
+        };
     }[];
 }
 

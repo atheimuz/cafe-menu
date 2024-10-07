@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import mongoose from "mongoose";
-import Menu, { IMenu } from "@/models/menu";
+import Menu from "@/models/menu";
 
 export async function GET(
     request: Request,
@@ -23,8 +23,12 @@ export async function GET(
 
         return NextResponse.json(menu);
     } catch (error) {
+        const err = error as Error;
         return NextResponse.json(
-            { success: false, message: "Error fetching menu" },
+            {
+                success: false,
+                message: `Error fetching menu. detail: ${err.message}`
+            },
             { status: 500 }
         );
     }

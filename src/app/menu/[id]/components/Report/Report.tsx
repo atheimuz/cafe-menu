@@ -28,7 +28,7 @@ const Report = ({ brandName, report }: Props) => {
         <div className={styles.wrapper}>
             <Tab
                 value={index}
-                onChange={(val) => setIndex(val)}
+                onChange={(val: number) => setIndex(val)}
                 className={styles.sizes}
             >
                 {report.map((item, sizeIndex) => (

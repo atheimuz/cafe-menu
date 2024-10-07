@@ -13,7 +13,7 @@ interface Props {
     }[];
 }
 const RelatedMenuList = ({ items }: Props) => {
-    if (!items?.length) return null;
+    if (!items || !items.length) return null;
     return (
         <div className={styles.wrapper}>
             <ItemTitle>연관 상품</ItemTitle>

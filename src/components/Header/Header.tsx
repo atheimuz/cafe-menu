@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { CgChevronLeft } from "react-icons/cg";
-import { LuExternalLink } from "react-icons/lu";
 import styles from "./Header.module.scss";
 
 interface Props {

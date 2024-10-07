@@ -8,8 +8,12 @@ export async function GET() {
         const brands = await Brand.find({}).select(["_id", "name", "options"]);
         return NextResponse.json({ list: brands });
     } catch (error) {
+        const err = error as Error;
         return NextResponse.json(
-            { success: false, message: "Error fetching brands" },
+            {
+                success: false,
+                message: `Error fetching brands. detail: ${err.message}`
+            },
             { status: 500 }
         );
     }

@@ -15,7 +15,7 @@ const Detail = ({ desc, cautions, allergies, children }: Props) => {
     return (
         <div className={styles.wrapper}>
             <h2 className={styles.desc}>{desc}</h2>
-            {cautions?.length > 0 && (
+            {cautions && cautions.length > 0 && (
                 <div className={styles.messages}>
                     {cautions.map((item) => (
                         <Message color="red" key={item}>
@@ -27,7 +27,7 @@ const Detail = ({ desc, cautions, allergies, children }: Props) => {
             {children}
             <div className={styles.allergies}>
                 <ItemTitle>알레르기 유발</ItemTitle>
-                {allergies?.length > 0 ? (
+                {allergies && allergies.length > 0 ? (
                     <ul className={styles.items}>
                         {allergies.map((item: string) => (
                             <li key={item}>

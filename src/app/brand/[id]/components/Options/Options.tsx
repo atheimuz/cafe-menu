@@ -2,7 +2,7 @@ import ItemTitle from "@/components/ItemTitle";
 import { convertOption } from "@/utils/brand";
 import styles from "./Options.module.scss";
 
-const icons = {
+const icons: { [key: string]: string } = {
     caffeine: "/images/icons/coffee.png",
     milk: "/images/icons/milk.png",
     sugar: "/images/icons/sugar.png"

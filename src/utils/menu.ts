@@ -21,7 +21,9 @@ export const convertRelatedType = (type: string): string => {
     }
 };
 
-export const convertRelatedTypeTagColor = (type: string): string => {
+export const convertRelatedTypeTagColor = (
+    type: string
+): "blue" | "red" | "green" | "yellow" | "orange" | "green" | "gray" => {
     switch (type) {
         case "ice":
             return "blue";

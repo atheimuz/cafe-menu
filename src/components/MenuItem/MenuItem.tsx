@@ -39,7 +39,7 @@ const MenuItem = ({ _id, name, brand, thumbnail, report }: IMenuItem) => {
                             const { title, unit } = convertTitleAndUnit(key);
                             if (!title) return null;
                             return (
-                                <li className={styles.reportItem}>
+                                <li className={styles.reportItem} key={key}>
                                     <dl className={styles.reportItemInner}>
                                         <dt>{title}</dt>
                                         <dd>

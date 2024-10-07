@@ -16,7 +16,10 @@ const Search = ({ keyword }: Props) => {
     const handleSearch = () => {
         if (!inputValue) return;
         router.push(`/search?keyword=${inputValue}`);
-        document.activeElement?.blur();
+
+        if (document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur();
+        }
     };
 
     useEffect(() => {
@@ -30,8 +33,10 @@ const Search = ({ keyword }: Props) => {
                     size="middle"
                     round
                     value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyDown={(e) => {
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        setInputValue(e.target.value)
+                    }
+                    onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
                         if (e.key === "Enter") {
                             handleSearch();
                         }
