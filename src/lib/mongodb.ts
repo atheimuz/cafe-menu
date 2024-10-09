@@ -1,9 +1,6 @@
 import { connect, connection, ConnectOptions } from "mongoose";
 
-const options = {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-};
+const options = {};
 
 async function dbConnect() {
     if (!connection.readyState) {
