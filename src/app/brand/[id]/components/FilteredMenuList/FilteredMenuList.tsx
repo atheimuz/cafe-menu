@@ -13,9 +13,10 @@ import MenuItem from "@/components/MenuItem";
 import MenuItemEmpty from "@/components/MenuItemEmpty";
 import styles from "./FilteredMenuList.module.scss";
 
-const Tab = dynamic(() => import("@atheimuz/react-ui").then((mod) => mod.Tab), {
-    ssr: false
-});
+const Tab = dynamic(
+    () => import("@atheimuz/react-ui").then((mod) => mod.Tab<string>),
+    { ssr: false }
+);
 
 const TabItem = dynamic(
     () => import("@atheimuz/react-ui").then((mod) => mod.Tab.Item),
