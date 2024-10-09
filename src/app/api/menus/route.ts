@@ -32,7 +32,10 @@ export async function GET(request: NextRequest) {
         const totalCounts = await Menu.countDocuments(filter);
 
         if (!totalCounts) {
-            return NextResponse.json({ totalCounts, list: [] });
+            return NextResponse.json({
+                status: 200,
+                data: { totalCounts, list: [] }
+            });
         }
 
         const menus: IMenuItem[] = await Menu.aggregate([
@@ -79,7 +82,10 @@ export async function GET(request: NextRequest) {
                 $limit: Number(limit) || 20
             }
         ]);
-        return NextResponse.json({ totalCounts, list: menus });
+        return NextResponse.json({
+            status: 200,
+            data: { totalCounts, list: menus }
+        });
     } catch (error) {
         const err = error as Error;
         return NextResponse.json(

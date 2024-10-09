@@ -20,7 +20,6 @@ export async function GET(
                 path: "relatedMenus.menu",
                 select: "name thumbnail"
             });
-
         return NextResponse.json({ status: 200, data: menu });
     } catch (error) {
         const err = error as Error;

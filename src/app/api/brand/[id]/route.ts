@@ -17,7 +17,7 @@ export async function GET(
             "link",
             "options"
         ]);
-        return NextResponse.json(brand);
+        return NextResponse.json({ status: 200, data: brand });
     } catch (error) {
         const err = error as Error;
         return NextResponse.json(
