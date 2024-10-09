@@ -8,7 +8,9 @@ export const getMenusAPI = async (
 ) => {
     const queryString = new URLSearchParams(filterQuery(query)).toString();
     const url = `${process.env.NEXT_PUBLIC_API_URI}/api/menus?${queryString}`; // 최종 URL 생성
-    const res = await fetch(url).then((res) => res.json());
+    const res = await fetch(url).then((res) => {
+        return res.json();
+    });
 
     const data: { totalCounts: number; list: IMenuItem[] } = res.data;
 
