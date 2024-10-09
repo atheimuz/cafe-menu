@@ -1,13 +1,9 @@
 import { IBrand } from "@/models/brand";
 
 export const getBrandsAPI = async () => {
-    console.log("url:::", `${process.env.NEXT_PUBLIC_API_URI}/api/brands`);
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URI}/api/brands`
-    ).then((res) => {
-        console.log("res::::", res.text());
-        return res.json();
-    });
+    ).then((res) => res.json());
     const data: { list: IBrand[] } = res.data;
 
     return data;
