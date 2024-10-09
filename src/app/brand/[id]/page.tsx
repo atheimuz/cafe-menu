@@ -1,9 +1,8 @@
 import { Suspense } from "react";
-import Header from "@/components/Header";
-import BrandInfo, {
-    BrandInfoSkeleton
-} from "@/app/brand/[id]/components/BrandInfo";
 import Loading from "@/components/Loading";
+import Header from "@/components/Header";
+import BrandInfo from "@/app/brand/[id]/components/BrandInfo";
+import BrandInfoSkeleton from "@/app/brand/[id]/components/BrandInfo/BrandInfoSkeleton";
 import FilteredMenuList from "@/app/brand/[id]/components/FilteredMenuList";
 import { convertBrandName } from "@/utils/brand";
 import { getBrandAPI } from "@/lib/remote/brand";

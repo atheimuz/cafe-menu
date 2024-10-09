@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Tag } from "@atheimuz/react-ui";
+import dynamic from "next/dynamic";
 import { convertRelatedType, convertRelatedTypeTagColor } from "@/utils/menu";
 import styles from "./RelatedMenuItem.module.scss";
+
+const Tag = dynamic(() => import("@atheimuz/react-ui").then((mod) => mod.Tag), {
+    ssr: false
+});
 
 interface Props {
     type: "ice" | "hot" | "sizeUp" | "sizeDown" | "decaf" | "caf";

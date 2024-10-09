@@ -1,9 +1,18 @@
 "use client";
 
-import { Message, Tag } from "@atheimuz/react-ui";
+import dynamic from "next/dynamic";
 import { convertAllergy, convertCaution } from "@/utils/menu";
 import ItemTitle from "@/components/ItemTitle";
 import styles from "./Detail.module.scss";
+
+const Message = dynamic(
+    () => import("@atheimuz/react-ui").then((mod) => mod.Message),
+    { ssr: false }
+);
+
+const Tag = dynamic(() => import("@atheimuz/react-ui").then((mod) => mod.Tag), {
+    ssr: false
+});
 
 interface Props {
     desc: string;

@@ -1,11 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import { Tag } from "@atheimuz/react-ui";
 import { convertBrandName } from "@/utils/brand";
 import { CgChevronRight } from "react-icons/cg";
 import styles from "./Summary.module.scss";
+
+const Tag = dynamic(() => import("@atheimuz/react-ui").then((mod) => mod.Tag), {
+    ssr: false
+});
 
 interface Props {
     type: "ice" | "hot";

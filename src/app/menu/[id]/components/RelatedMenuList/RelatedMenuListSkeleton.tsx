@@ -1,5 +1,5 @@
 import ItemTitle from "@/components/ItemTitle";
-import { RelatedMenuItemSkeleton } from "@/components/RelatedMenuItem";
+import RelatedMenuItemSkeleton from "@/components/RelatedMenuItem/RelatedMenuItemSkeleton";
 import styles from "./RelatedMenuList.module.scss";
 
 const RelatedMenuListSkeleton = () => {

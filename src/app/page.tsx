@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Search from "@/app/components/Search";
-import BrandList, { BrandListSkeleton } from "@/app/components/BrandList";
+import BrandList from "@/app/components/BrandList";
+import BrandListSkeleton from "@/app/components/BrandList/BrandListSkeleton";
 import styles from "./page.module.scss";
 
 export default function HomePage() {

@@ -1,11 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { Tab } from "@atheimuz/react-ui";
+import dynamic from "next/dynamic";
 import { convertTitleAndUnit } from "@/utils/menu";
 import { convertBrandName } from "@/utils/brand";
 import ItemTitle from "@/components/ItemTitle";
 import styles from "./Report.module.scss";
+
+const Tab = dynamic(() => import("@atheimuz/react-ui").then((mod) => mod.Tab), {
+    ssr: false
+});
+
+const TabItem = dynamic(
+    () => import("@atheimuz/react-ui").then((mod) => mod.Tab.Item),
+    { ssr: false }
+);
 
 interface Props {
     brandName: string;
@@ -28,17 +37,13 @@ const Report = ({ brandName, report }: Props) => {
         <div className={styles.wrapper}>
             <Tab
                 value={index}
-                onChange={(val: number) => setIndex(val)}
+                onChange={(value: number) => setIndex(value)}
                 className={styles.sizes}
             >
                 {report.map((item, sizeIndex) => (
-                    <Tab.Item
-                        key={item.size}
-                        value={sizeIndex}
-                        onClick={() => setIndex(sizeIndex)}
-                    >
+                    <TabItem key={item.size} value={sizeIndex}>
                         {item.size}
-                    </Tab.Item>
+                    </TabItem>
                 ))}
             </Tab>
             <ul>

@@ -1,12 +1,27 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { TextField } from "@atheimuz/react-ui";
 import { CiSearch } from "react-icons/ci";
 import styles from "./Search.module.scss";
 
-interface Props {
+const TextField = dynamic(
+    () => import("@atheimuz/react-ui").then((mod) => mod.TextField),
+    { ssr: false }
+);
+
+const TextFieldInput = dynamic(
+    () => import("@atheimuz/react-ui").then((mod) => mod.TextField.Input),
+    { ssr: false }
+);
+
+const TextFieldAddon = dynamic(
+    () => import("@atheimuz/react-ui").then((mod) => mod.TextField.Addon),
+    { ssr: false }
+);
+
+export interface Props {
     keyword?: string;
 }
 const Search = ({ keyword }: Props) => {
@@ -17,7 +32,7 @@ const Search = ({ keyword }: Props) => {
         if (!inputValue) return;
         router.push(`/search?keyword=${inputValue}`);
 
-        if (document.activeElement instanceof HTMLElement) {
+        if (document?.activeElement instanceof HTMLElement) {
             document.activeElement.blur();
         }
     };
@@ -29,7 +44,7 @@ const Search = ({ keyword }: Props) => {
     return (
         <div className={styles.wrapper}>
             <TextField>
-                <TextField.Input
+                <TextFieldInput
                     size="middle"
                     round
                     value={inputValue}
@@ -43,15 +58,15 @@ const Search = ({ keyword }: Props) => {
                     }}
                     placeholder="돌체라떼"
                 >
-                    <TextField.Addon position="after">
+                    <TextFieldAddon position="after">
                         <button
                             className={styles.searchBtn}
                             onClick={handleSearch}
                         >
                             <CiSearch />
                         </button>
-                    </TextField.Addon>
-                </TextField.Input>
+                    </TextFieldAddon>
+                </TextFieldInput>
             </TextField>
         </div>
     );
