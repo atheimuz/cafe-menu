@@ -9,8 +9,11 @@ export const getMenusAPI = async (query = {}) => {
 };
 
 export const getMenuAPI = async (menuId: string) => {
-    const res = await client.get(`/api/menu/${menuId}`);
-    const data: IMenu = res.data;
-
+    const result = await fetch(
+        `${process.env.API_URI}/api/menu/${menuId}`
+    ).then((res) => {
+        return res.json();
+    });
+    const data: IMenu = result.data;
     return data;
 };
