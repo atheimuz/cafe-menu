@@ -1,13 +1,12 @@
-"use client";
-
-import { Spinner } from "@atheimuz/react-ui";
+import { AiOutlineLoading } from "react-icons/ai";
 import styles from "./Loading.module.scss";
 
 const Loading = () => {
-    // return <p>loading</p>
     return (
         <div className={styles.wrapper}>
-            <Spinner />
+            <span className={styles.icon}>
+                <AiOutlineLoading />
+            </span>
         </div>
     );
 };
