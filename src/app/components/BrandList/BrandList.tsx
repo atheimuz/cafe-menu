@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { convertBrandName } from "@/utils/brand";
 import { brandLogoSrc } from "@/schema/brand";
-import styles from "./BrandList.module.scss";
 import { getBrandsAPI } from "@/lib/remote/brand";
+import ErrorMessage from "@/components/ErrorMessage";
+import styles from "./BrandList.module.scss";
 
 const BrandList = async () => {
     const data = await getBrandsAPI();
 
     if ("error" in data) {
-        return null;
+        return <ErrorMessage>브랜드 리스트를 불러오지 못했어요</ErrorMessage>;
     }
 
     return (

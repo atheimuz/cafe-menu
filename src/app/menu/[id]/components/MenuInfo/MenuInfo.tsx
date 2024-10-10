@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { getMenuAPI } from "@/lib/remote/menu";
 import Loading from "@/components/Loading";
+import ErrorMessage from "@/components/ErrorMessage";
 import Summary from "@/app/menu/[id]/components/Summary";
 import Detail from "@/app/menu/[id]/components/Detail";
 import DetailSkeleton from "@/app/menu/[id]/components/Detail/DetailSkeleton";
@@ -18,7 +19,7 @@ const MenuInfo = async ({ id }: Props) => {
     const data = await getMenuAPI(id);
 
     if ("error" in data) {
-        return null;
+        return <ErrorMessage>메뉴 정보를 불러오지 못했어요</ErrorMessage>;
     }
 
     return (
