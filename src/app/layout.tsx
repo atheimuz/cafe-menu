@@ -1,6 +1,8 @@
 "use client";
 
+import { Analytics } from "@vercel/analytics/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./globals.css";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -42,7 +44,9 @@ export default function RootLayout({
             <body>
                 <QueryClientProvider client={queryClient}>
                     {children}
+                    <ReactQueryDevtools initialIsOpen={false} />
                 </QueryClientProvider>
+                <Analytics />
             </body>
         </html>
     );
