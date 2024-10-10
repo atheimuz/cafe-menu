@@ -1,13 +1,15 @@
-"use client";
-
 import Link from "next/link";
 import { convertBrandName } from "@/utils/brand";
 import { brandLogoSrc } from "@/schema/brand";
-import { useBrands } from "@/queries/useBrandQuery";
 import styles from "./BrandList.module.scss";
+import { getBrandsAPI } from "@/lib/remote/brand";
 
-const BrandList = () => {
-    const { data } = useBrands();
+const BrandList = async () => {
+    const data = await getBrandsAPI();
+
+    if ("error" in data) {
+        return null;
+    }
 
     return (
         <div className={styles.wrapper}>

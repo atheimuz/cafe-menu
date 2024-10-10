@@ -1,11 +1,13 @@
-"use client";
-
+import { getBrandAPI } from "@/lib/remote/brand";
 import Options from "@/app/brand/[id]/components/Options";
-import { useBrand } from "@/queries/useBrandQuery";
 import BrandName from "@/app/brand/[id]/components/BrandName";
 
-const BrandInfo = ({ id }: { id: string }) => {
-    const { data } = useBrand(id);
+const BrandInfo = async ({ id }: { id: string }) => {
+    const data = await getBrandAPI(id);
+
+    if ("error" in data) {
+        return null;
+    }
 
     return (
         <>

@@ -1,10 +1,6 @@
-import {
-    useSuspenseQuery,
-    useSuspenseInfiniteQuery
-} from "@tanstack/react-query";
-import { getMenuAPI, getMenusAPI } from "@/lib/remote/menu";
+import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
+import { getMenusAPI } from "@/lib/remote/menu";
 
-export const MENU_QUERY_KEY = "menu";
 export const MENUS_QUERY_KEY = "menus";
 
 export const useMenus = ({
@@ -30,12 +26,5 @@ export const useMenus = ({
                 ? lastPageParam + lastPage.list.length
                 : null;
         }
-    });
-};
-
-export const useMenu = (menuId: string) => {
-    return useSuspenseQuery({
-        queryKey: [MENU_QUERY_KEY, menuId],
-        queryFn: () => getMenuAPI(menuId)
     });
 };

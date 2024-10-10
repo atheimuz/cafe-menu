@@ -5,6 +5,14 @@ import MenuInfo from "@/app/menu/[id]/components/MenuInfo";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
     const menu = await getMenuAPI(params.id);
+
+    if ("error" in menu) {
+        return {
+            title: "메뉴 정보를 불러올 수 없습니다 | 카페 칼로리",
+            description: "해당 메뉴의 정보를 불러오는 도중 오류가 발생했습니다."
+        };
+    }
+
     const brandName = convertBrandName(menu?.brand?.name);
 
     return {
@@ -18,11 +26,10 @@ export default async function MenuDetailPage({
 }: {
     params: { id: string };
 }) {
-    const menu = await getMenuAPI(params.id);
     return (
         <>
             <Header />
-            <MenuInfo data={menu} />
+            <MenuInfo id={params.id} />
         </>
     );
 }

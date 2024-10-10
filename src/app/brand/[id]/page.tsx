@@ -10,6 +10,15 @@ import styles from "./page.module.scss";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
     const brand = await getBrandAPI(params.id);
+
+    if ("error" in brand) {
+        return {
+            title: "브랜드 정보를 불러올 수 없습니다 | 카페 칼로리",
+            description:
+                "해당 브랜드의 정보를 불러오는 도중 오류가 발생했습니다."
+        };
+    }
+
     const brandName = convertBrandName(brand?.name);
 
     return {

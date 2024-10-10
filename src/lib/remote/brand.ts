@@ -1,22 +1,33 @@
 import { IBrand } from "@/models/brand";
 
 export const getBrandsAPI = async () => {
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URI}/api/brands`
-    ).then((res) => {
-        console.log("res:::", res);
-        return res.json();
-    });
-    const data: { list: IBrand[] } = res.data;
+    try {
+        const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URI}/api/brands`
+        );
+        const resJson = await res.json();
+        const data: { list: IBrand[] } = resJson.data;
 
-    return data;
+        return data;
+    } catch (e) {
+        return {
+            error: e instanceof Error ? e.message : "An unknown error occurred"
+        };
+    }
 };
 
 export const getBrandAPI = async (brandId: string) => {
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URI}/api/brand/${brandId}`
-    ).then((res) => res.json());
-    const data: IBrand = res.data;
+    try {
+        const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URI}/api/brand/${brandId}`
+        );
+        const resJson = await res.json();
+        const data: IBrand = resJson.data;
 
-    return data;
+        return data;
+    } catch (e) {
+        return {
+            error: e instanceof Error ? e.message : "An unknown error occurred"
+        };
+    }
 };

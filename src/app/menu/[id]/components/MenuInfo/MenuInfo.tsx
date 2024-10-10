@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { getMenuAPI } from "@/lib/remote/menu";
 import Loading from "@/components/Loading";
 import Summary from "@/app/menu/[id]/components/Summary";
 import Detail from "@/app/menu/[id]/components/Detail";
@@ -9,16 +10,17 @@ import RelatedMenuListSkeleton from "@/app/menu/[id]/components/RelatedMenuList/
 import Report from "@/app/menu/[id]/components/Report";
 import Price from "@/app/menu/[id]/components/Price";
 import styles from "./MenuInfo.module.scss";
-import { IMenu } from "@/models/menu";
 
 export interface Props {
-    data: IMenu;
+    id: string;
 }
-const MenuInfo = async ({ data }: Props) => {
-    if (!data) {
-        // todo: error component
-        //     return null;
+const MenuInfo = async ({ id }: Props) => {
+    const data = await getMenuAPI(id);
+
+    if ("error" in data) {
+        return null;
     }
+
     return (
         <div className={styles.wrapper}>
             <Suspense fallback={<SummarySkeleton />}>

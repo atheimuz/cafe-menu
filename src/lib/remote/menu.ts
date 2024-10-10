@@ -18,11 +18,17 @@ export const getMenusAPI = async (
 };
 
 export const getMenuAPI = async (menuId: string) => {
-    const result = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URI}/api/menu/${menuId}`
-    ).then((res) => {
-        return res.json();
-    });
-    const data: IMenu = result.data;
-    return data;
+    try {
+        const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URI}/api/menu/${menuId}`
+        );
+        const resJson = await res.json();
+        const data: IMenu = resJson.data;
+
+        return data;
+    } catch (e) {
+        return {
+            error: e instanceof Error ? e.message : "An unknown error occurred"
+        };
+    }
 };
