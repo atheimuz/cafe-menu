@@ -1,0 +1,3 @@
+User-Agent: *
+Allow: /
+Sitemap: https://cafe-menu-beta-three.vercel.app/sitemap.xml
