@@ -40,6 +40,14 @@ export default function RootLayout({
                     property="og:description"
                     content="다양한 프랜차이즈 카페 음료의 칼로리와 영양 성분을 확인하세요. 건강한 음료 선택을 도와드립니다."
                 />
+                <meta
+                    name="google-site-verification"
+                    content="au0oJuD7OKJYQL8NoVj3_yxeHO6EC_3cs_7HnTtHWLc"
+                />
+                <meta
+                    name="naver-site-verification"
+                    content="57156b37130fe1ffc9fef28a44b6890435ac5dc0"
+                />
             </head>
             <body>
                 <QueryClientProvider client={queryClient}>
