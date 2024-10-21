@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import mongoose from "mongoose";
 import connectToDatabase from "@/lib/mongodb";
-import Menu, { IMenuItem } from "@/models/menu";
+import { Menu } from "@/models";
+import { IMenuItem } from "@/models/menu";
 
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;

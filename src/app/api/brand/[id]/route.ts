@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import mongoose from "mongoose";
-import Brand from "@/models/brand";
+import { Brand } from "@/models";
 
 export async function GET(
     request: Request,

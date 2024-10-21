@@ -2,8 +2,7 @@ import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import mongoose from "mongoose";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Brand from "@/models/brand";
-import Menu from "@/models/menu";
+import { Menu } from "@/models";
 
 export async function GET(
     request: Request,
