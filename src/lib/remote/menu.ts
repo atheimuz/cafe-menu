@@ -23,10 +23,12 @@ export const getMenuAPI = async (menuId: string) => {
             `${process.env.NEXT_PUBLIC_API_URI}/api/menu/${menuId}`
         );
         const resJson = await res.json();
+        console.log("json::", resJson);
         const data: IMenu = resJson.data;
 
         return data;
     } catch (e) {
+        console.log("e::", e);
         return {
             error: e instanceof Error ? e.message : "An unknown error occurred"
         };
