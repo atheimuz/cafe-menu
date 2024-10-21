@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import mongoose from "mongoose";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Menu } from "@/models";
 
 export async function GET(
@@ -11,7 +10,6 @@ export async function GET(
     await connectToDatabase();
     try {
         const { id } = params;
-        console.log("models::", mongoose.modelNames());
         const menuId = new mongoose.Types.ObjectId(id);
         const menu = await Menu.findById(menuId)
             .populate({

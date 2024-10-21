@@ -5,7 +5,7 @@ import MenuInfo from "@/app/menu/[id]/components/MenuInfo";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
     const menu = await getMenuAPI(params.id);
-    console.log("menu::", menu);
+    
     if ("error" in menu) {
         return {
             title: "메뉴 정보를 불러올 수 없습니다 | 카페 칼로리",
