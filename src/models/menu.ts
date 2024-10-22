@@ -4,6 +4,7 @@ interface IMenu extends Document {
     _id: string;
     name: string;
     name_en: string;
+    sortName: string;
     desc: string;
     brand: { _id: string; name: string };
     thumbnail: string;

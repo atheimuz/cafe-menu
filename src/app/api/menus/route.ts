@@ -47,9 +47,12 @@ export async function GET(request: NextRequest) {
                 $project: {
                     id: 1,
                     name: 1,
+                    sortName: 1,
                     thumbnail: 1,
+                    type: 1,
                     brand: 1,
-                    report: { $arrayElemAt: ["$report", 0] }
+                    report: { $arrayElemAt: ["$report", 0] },
+                    relatedMenus: 1
                 }
             },
             {
@@ -67,14 +70,30 @@ export async function GET(request: NextRequest) {
                 $project: {
                     id: 1,
                     name: 1,
+                    sortName: 1,
                     thumbnail: 1,
+                    type: 1,
                     "brand._id": "$brandDetails._id",
                     "brand.name": "$brandDetails.name",
-                    report: 1
+                    report: 1,
+                    relatedMenus: 1
                 }
             },
             {
-                $sort: { name: 1 }
+                $addFields: {
+                    relatedMenusSize: {
+                        $size: { $ifNull: ["$relatedMenus", []] }
+                    }
+                }
+            },
+            {
+                $sort: {
+                    sortName: 1,
+                    relatedMenusSize: -1,
+                    type: 1,
+                    name: 1,
+                    _id: 1
+                }
             },
             {
                 $skip: Number(skip) || 0
