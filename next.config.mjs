@@ -7,7 +7,8 @@ const nextConfig = {
             "mmthcoffee.com",
             "admin.hollys.co.kr",
             "mcdn.twosome.co.kr",
-            "paikdabang.com"
+            "paikdabang.com",
+            "composecoffee.com"
         ]
     },
     async headers() {
