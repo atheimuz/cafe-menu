@@ -98,6 +98,8 @@ export const convertAllergy = (allergy: string): string => {
             return "아몬드";
         case "sulphuricAcid":
             return "아황산류";
+        case "pineNut":
+            return "잣";
         default:
             return allergy;
     }
