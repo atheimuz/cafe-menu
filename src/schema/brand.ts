@@ -2,7 +2,7 @@ export const brandLogoSrc: { [key: string]: string } = {
     starbucks: "/images/brand/starbucks.svg",
     twosomeplace: "/images/brand/twosomeplace.png",
     hollys: "/images/brand/hollys.jpg",
-    ediya: "/images/brand/ediya.jpg",
+    ediya: "/images/brand/ediya.png",
     megacoffee: "/images/brand/megacoffee.png",
     composecoffee: "/images/brand/composecoffee.svg",
     mammothcoffee: "/images/brand/mammothcoffee.png",
