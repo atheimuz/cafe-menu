@@ -56,7 +56,7 @@ export const convertTitleAndUnit = (
             return { title: "칼로리", unit: "kcal" };
         case "sodium":
             return { title: "나트륨", unit: "mg" };
-        case "sugars":
+        case "sugar":
             return { title: "당류", unit: "g" };
         case "protein":
             return { title: "단백질", unit: "g" };
