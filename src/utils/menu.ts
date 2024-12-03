@@ -54,6 +54,8 @@ export const convertTitleAndUnit = (
             return { title: "용량", unit: "ml" };
         case "kcal":
             return { title: "칼로리", unit: "kcal" };
+        case "carbohydrate":
+            return { title: "탄수화물", unit: "g" };
         case "sodium":
             return { title: "나트륨", unit: "mg" };
         case "sugar":
