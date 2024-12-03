@@ -1,19 +1,7 @@
-"use client";
-
 import { Analytics } from "@vercel/analytics/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import QueryProvider from "@/components/QueryProvider";
 import "./globals.css";
 import "react-loading-skeleton/dist/skeleton.css";
-
-const queryClient = new QueryClient({
-    defaultOptions: {
-        queries: {
-            refetchOnWindowFocus: false,
-            staleTime: 20 * 60 * 1000
-        }
-    }
-});
 
 export const metadata = {
     title: "카페 칼로리 - 프랜차이즈 음료 영양 정보",
@@ -44,10 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 />
             </head>
             <body>
-                <QueryClientProvider client={queryClient}>
-                    {children}
-                    <ReactQueryDevtools initialIsOpen={false} />
-                </QueryClientProvider>
+                <QueryProvider>{children}</QueryProvider>
                 <Analytics />
             </body>
         </html>
