@@ -13,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <head>
+                <meta property="og:site_name" content="카페 칼로리" />
                 <meta
                     name="keywords"
                     content="카페 칼로리, 음료 영양 정보, 프랜차이즈 음료 칼로리, 카페 음료 영양 성분, 건강 음료 정보"
