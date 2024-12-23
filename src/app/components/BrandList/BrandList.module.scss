@@ -22,6 +22,13 @@
     position: relative;
     padding: 20px 12px;
     border-radius: 6px;
+
+    &:hover {
+        .brandLogo {
+            opacity: 0.7;
+            transform: scale(0.7);
+        }
+    }
 }
 
 .brandName {
@@ -32,15 +39,15 @@
 .brandLogo {
     display: block;
     position: absolute;
-    top: 50%;
-    right: 0;
-    width: 50px;
-    height: 50px;
+    top: -12px;
+    right: -16px;
+    width: 84px;
+    height: 84px;
     padding: 6px;
     border-radius: 50%;
     object-fit: cover;
-    transform: translateY(-50%);
-    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0.18;
 }
 
 .caution {
