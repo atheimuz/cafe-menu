@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { convertBrandName } from "@/utils/brand";
-import { brandLogoSrc } from "@/schema/brand";
+import { brandLogoSrc, brandColor } from "@/schema/brand";
 import { getBrandsAPI } from "@/lib/remote/brand";
 import ErrorMessage from "@/components/ErrorMessage";
 import styles from "./BrandList.module.scss";
@@ -20,22 +20,23 @@ const BrandList = async () => {
                         <Link
                             href={`/brand/${item._id}`}
                             className={styles.brand}
+                            prefetch
+                            style={{
+                                backgroundColor: brandColor[item.name].background,
+                                color: brandColor[item.name].text
+                            }}
                         >
+                            <p className={styles.brandName}>{convertBrandName(item.name)}</p>
                             <img
                                 src={brandLogoSrc[item.name]}
                                 alt={`${item.name} 로고`}
                                 className={styles.brandLogo}
                             />
-                            <p className={styles.brandName}>
-                                {convertBrandName(item.name)}
-                            </p>
                         </Link>
                     </li>
                 ))}
             </ul>
-            <p className={styles.caution}>
-                * 더 다양한 브랜드들이 추가될 예정이에요
-            </p>
+            <p className={styles.caution}>* 더 다양한 브랜드들이 추가될 예정이에요</p>
         </div>
     );
 };
