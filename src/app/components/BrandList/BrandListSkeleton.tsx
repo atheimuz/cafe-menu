@@ -7,15 +7,7 @@ const BrandListSkeleton = () => {
             <ul className={styles.items}>
                 {new Array(8).fill(0).map((_, index) => (
                     <li key={index} className={styles.item}>
-                        <div className={styles.brand}>
-                            <div className={styles.brandLogo}>
-                                <Skeleton width={36} height={36} circle />
-                            </div>
-
-                            <p className={styles.brandName}>
-                                <Skeleton />
-                            </p>
-                        </div>
+                        <Skeleton className={styles.brand} />
                     </li>
                 ))}
             </ul>
