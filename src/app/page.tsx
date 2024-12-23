@@ -7,11 +7,11 @@ import styles from "./page.module.scss";
 export default function HomePage() {
     return (
         <div className={styles.page}>
-            <Search />
             <h1 className={styles.title}>
                 다양한 프랜차이즈의 음료들의{" \n"}
                 <span className={styles.point}>영양성분</span>을 확인해보세요!
             </h1>
+            <Search />
             <Suspense fallback={<BrandListSkeleton />}>
                 <BrandList />
             </Suspense>
