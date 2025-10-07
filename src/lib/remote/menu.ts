@@ -7,8 +7,10 @@ export const getMenusAPI = async (
     } = {}
 ) => {
     const queryString = new URLSearchParams(filterQuery(query)).toString();
-    const url = `${process.env.NEXT_PUBLIC_API_URI}/api/menus?${queryString}`; // 최종 URL 생성
-    const res = await fetch(url).then((res) => {
+    const url = `${process.env.NEXT_PUBLIC_API_URI}/api/menus?${queryString}`;
+    const res = await fetch(url, {
+        next: { revalidate: 1800 }
+    }).then((res) => {
         return res.json();
     });
 
@@ -18,17 +20,17 @@ export const getMenusAPI = async (
 };
 
 export const getMenuAPI = async (menuId: string) => {
-    try {
-        const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URI}/api/menu/${menuId}`
-        );
-        const resJson = await res.json();
-        const data: IMenu = resJson.data;
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URI}/api/menu/${menuId}`,
+        { next: { revalidate: 1800 } }
+    );
 
-        return data;
-    } catch (e) {
-        return {
-            error: e instanceof Error ? e.message : "An unknown error occurred"
-        };
+    if (!res.ok) {
+        throw new Error(`메뉴 정보 요청 실패: ${res.status}`);
     }
+
+    const resJson = await res.json();
+    const data: IMenu = resJson.data;
+
+    return data;
 };
