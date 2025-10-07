@@ -9,7 +9,8 @@ const nextConfig = {
             "mcdn.twosome.co.kr",
             "paikdabang.com",
             "composecoffee.com",
-            "ediya.com"
+            "ediya.com",
+            "www.ediya.com"
         ]
     },
     async headers() {
