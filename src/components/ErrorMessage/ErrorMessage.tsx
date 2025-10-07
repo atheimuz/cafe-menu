@@ -1,17 +1,10 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import styles from "./ErrorMessage.module.scss";
-
-const Message = dynamic(
-    () => import("@atheimuz/react-ui").then((mod) => mod.Message),
-    { ssr: false }
-);
+import { AlertCircle } from "lucide-react";
 
 const ErrorMessage = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className={styles.wrapper}>
-            <Message color="red">{children}</Message>
+        <div className="flex items-center gap-2 rounded-xl bg-destructive/10 text-destructive px-4 py-3 text-sm mx-4 my-4">
+            <AlertCircle className="h-4 w-4 shrink-0" />
+            <span>{children}</span>
         </div>
     );
 };
