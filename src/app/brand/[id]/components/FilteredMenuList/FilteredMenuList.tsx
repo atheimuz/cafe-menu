@@ -120,7 +120,7 @@ const FilteredMenuList = () => {
             </div>
             <div className="px-4">
             {data.pages[0]?.list?.length > 0 ? (
-                <ul className="space-y-2">
+                <ul className="grid grid-cols-2 gap-2">
                     {data.pages.map((page) =>
                         page?.list?.map((item: IMenuItem) => (
                             <li key={item._id}>

@@ -18,7 +18,7 @@ const BrandName = ({ name, link }: Props) => {
                 <h1 className="text-lg font-bold">{convertBrandName(name)}</h1>
             </div>
             <a
-                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground hover:underline transition-colors"
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"

@@ -15,11 +15,7 @@ const MenuItem = ({ _id, name, brand, thumbnail, report }: IMenuItem) => {
         <Card className="overflow-hidden py-0 gap-0">
             <div className="flex items-center gap-2.5 p-2.5">
                 <Link href={`/menu/${_id}`} className="shrink-0">
-                    <img
-                        src={thumbnail}
-                        className="w-12 h-12 rounded-xl object-cover"
-                        alt={name}
-                    />
+                    <img src={thumbnail} className="w-12 h-12 rounded-xl object-cover" alt={name} />
                 </Link>
                 <Link href={`/menu/${_id}`} className="flex-1 min-w-0">
                     <span className="text-xs text-muted-foreground">
@@ -28,7 +24,7 @@ const MenuItem = ({ _id, name, brand, thumbnail, report }: IMenuItem) => {
                     <p className="text-sm font-medium truncate mt-0.5">{name}</p>
                 </Link>
                 <button
-                    className={`shrink-0 p-1.5 rounded-full hover:bg-accent transition-transform ${
+                    className={`cursor-pointer shrink-0 p-1.5 rounded-full hover:bg-accent transition-transform ${
                         moreStatus ? "" : "rotate-180"
                     }`}
                     onClick={() => setMoreStatus(!moreStatus)}
@@ -45,7 +41,9 @@ const MenuItem = ({ _id, name, brand, thumbnail, report }: IMenuItem) => {
                             return (
                                 <li key={key} className="text-center">
                                     <dt className="text-[11px] text-muted-foreground">{title}</dt>
-                                    <dd className={`text-xs font-medium mt-0.5 ${key === "calorie" ? "text-[#FF6F00] font-semibold" : ""}`}>
+                                    <dd
+                                        className={`text-xs font-medium mt-0.5 ${key === "calorie" ? "text-[#FF6F00] font-semibold" : ""}`}
+                                    >
                                         {value}
                                         {unit}
                                     </dd>

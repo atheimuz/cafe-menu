@@ -25,7 +25,7 @@ const RelatedMenuItem = ({ type, menu }: Props) => {
     return (
         <Link
             href={`/menu/${menu?._id}`}
-            className="flex flex-col items-center gap-2 w-20 shrink-0"
+            className="flex flex-col items-center gap-2 w-20 shrink-0 rounded-xl p-2 hover:bg-accent transition-colors"
         >
             <img
                 src={menu?.thumbnail}

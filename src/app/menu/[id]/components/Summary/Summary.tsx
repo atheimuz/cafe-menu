@@ -23,7 +23,7 @@ const Summary = ({ type, name, name_en, thumbnail, brand }: Props) => {
             />
             <div className="flex-1 min-w-0 pt-1">
                 <Link
-                    className="inline-flex items-center gap-0.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                    className="inline-flex items-center gap-0.5 text-xs text-muted-foreground hover:text-foreground hover:underline transition-colors"
                     href={`/brand/${brand?._id}`}
                 >
                     {convertBrandName(brand?.name)}
