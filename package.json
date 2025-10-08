@@ -9,7 +9,6 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@atheimuz/react-ui": "^0.0.22",
         "@radix-ui/react-separator": "^1.1.8",
         "@radix-ui/react-slot": "^1.2.4",
         "@radix-ui/react-tabs": "^1.1.13",
