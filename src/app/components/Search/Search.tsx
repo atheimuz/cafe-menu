@@ -1,25 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { CiSearch } from "react-icons/ci";
-import styles from "./Search.module.scss";
-
-const TextField = dynamic(
-    () => import("@atheimuz/react-ui").then((mod) => mod.TextField),
-    { ssr: false }
-);
-
-const TextFieldInput = dynamic(
-    () => import("@atheimuz/react-ui").then((mod) => mod.TextField.Input),
-    { ssr: false }
-);
-
-const TextFieldAddon = dynamic(
-    () => import("@atheimuz/react-ui").then((mod) => mod.TextField.Addon),
-    { ssr: false }
-);
+import { Search as SearchIcon } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export interface Props {
     keyword?: string;
@@ -42,33 +27,30 @@ const Search = ({ keyword }: Props) => {
     }, [keyword]);
 
     return (
-        <div className={styles.wrapper}>
-            <TextField>
-                <TextFieldInput
-                    size="middle"
-                    round
+        <form
+            onSubmit={(e) => {
+                e.preventDefault();
+                handleSearch();
+            }}
+            className="relative px-4 py-2"
+        >
+            <div className="flex items-center gap-2">
+                <Input
                     value={inputValue}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setInputValue(e.target.value)
-                    }
-                    onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-                        if (e.key === "Enter") {
-                            handleSearch();
-                        }
-                    }}
-                    placeholder="돌체라떼"
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder="음료 이름을 검색해보세요"
+                    className="h-11 rounded-full pl-4 pr-12"
+                />
+                <Button
+                    type="submit"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-5 h-10 w-10 rounded-full"
                 >
-                    <TextFieldAddon position="after">
-                        <button
-                            className={styles.searchBtn}
-                            onClick={handleSearch}
-                        >
-                            <CiSearch />
-                        </button>
-                    </TextFieldAddon>
-                </TextFieldInput>
-            </TextField>
-        </div>
+                    <SearchIcon className="h-4 w-4" />
+                </Button>
+            </div>
+        </form>
     );
 };
 

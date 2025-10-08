@@ -1,8 +1,10 @@
+export const dynamic = "force-dynamic";
+
 import { Suspense } from "react";
 import Loading from "@/components/Loading";
+import Header from "@/components/Header";
 import Search from "@/app/components/Search";
 import SearchedList from "@/app/search/components/SearchedList";
-import styles from "./page.module.scss";
 
 export async function generateMetadata({
     searchParams
@@ -28,8 +30,11 @@ export default function SearchPage({
 }) {
     const keyword = searchParams.keyword;
     return (
-        <div className={styles.page}>
-            <Search keyword={keyword} />
+        <div className="pb-8">
+            <Header />
+            <div className="pt-4">
+                <Search keyword={keyword} />
+            </div>
             <Suspense fallback={<Loading />}>
                 <SearchedList keyword={keyword} />
             </Suspense>

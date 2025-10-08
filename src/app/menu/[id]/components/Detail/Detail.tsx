@@ -1,18 +1,7 @@
-"use client";
-
-import dynamic from "next/dynamic";
+import { AlertTriangle } from "lucide-react";
 import { convertAllergy, convertCaution } from "@/utils/menu";
 import ItemTitle from "@/components/ItemTitle";
-import styles from "./Detail.module.scss";
-
-const Message = dynamic(
-    () => import("@atheimuz/react-ui").then((mod) => mod.Message),
-    { ssr: false }
-);
-
-const Tag = dynamic(() => import("@atheimuz/react-ui").then((mod) => mod.Tag), {
-    ssr: false
-});
+import { Badge } from "@/components/ui/badge";
 
 interface Props {
     desc: string;
@@ -22,30 +11,34 @@ interface Props {
 }
 const Detail = ({ desc, cautions, allergies, children }: Props) => {
     return (
-        <div className={styles.wrapper}>
-            <h2 className={styles.desc}>{desc}</h2>
+        <div className="px-4 py-4 space-y-4">
+            <h2 className="text-sm text-muted-foreground leading-relaxed">{desc}</h2>
             {cautions && cautions.length > 0 && (
-                <div className={styles.messages}>
+                <div className="space-y-2">
                     {cautions.map((item) => (
-                        <Message color="red" key={item}>
-                            {convertCaution(item)}
-                        </Message>
+                        <div
+                            key={item}
+                            className="flex items-start gap-2 rounded-xl bg-red-50 text-red-700 border border-red-200 px-3 py-2.5 text-xs"
+                        >
+                            <AlertTriangle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
+                            <span>{convertCaution(item)}</span>
+                        </div>
                     ))}
                 </div>
             )}
             {children}
-            <div className={styles.allergies}>
+            <div>
                 <ItemTitle>알레르기 유발</ItemTitle>
                 {allergies && allergies.length > 0 ? (
-                    <ul className={styles.items}>
+                    <div className="flex flex-wrap gap-1.5">
                         {allergies.map((item: string) => (
-                            <li key={item}>
-                                <Tag>{convertAllergy(item)}</Tag>
-                            </li>
+                            <Badge key={item} variant="outline" className="text-xs">
+                                {convertAllergy(item)}
+                            </Badge>
                         ))}
-                    </ul>
+                    </div>
                 ) : (
-                    <p className={styles.empty}>없음</p>
+                    <p className="text-xs text-muted-foreground">없음</p>
                 )}
             </div>
         </div>

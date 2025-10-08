@@ -1,50 +1,191 @@
-{
-    "name": "딸기 글레이즈드 크림 프라푸치노",
-    "name_en": "Strawberry Glazed Cream Frappuccino",
-    "desc": "상큼&달콤한 딸기와 부드러운 글레이즈드 소스에 바삭한 딸기 토핑을 얹은 프라푸치노. 숙련된 바리스타의 솜씨로 그려낸 특별한 예술 작품을 감상해보세요.",
-    "brand": "스타벅스",
-    "thumbnail": "https://image.istarbucks.co.kr/upload/store/skuimg/2024/06/[9200000005369]_20240614143554575.jpg",
-    "sizes": ["tall", "grande", "venti"],
-    "prices": [
-        { "size": "tall", "price": 6300 },
-        { "size": "grande", "price": 7000 },
-        { "size": "venti", "price": 8000 }
-    ],
-    "allergies": ["우유"],
-    "unit": "oz",
-    "report": [
-        {
-            "size": "tall",
-            "capacity": 355,
-            "kcal": 340,
-            "sodium": 180,
-            "sugars": 42,
-            "protein": 6,
-            "caffeine": 100,
-            "cholesterol": 40,
-            "fat": 14
-        },
-        {
-            "size": "grande",
-            "capacity": 500,
-            "kcal": 340,
-            "sodium": 180,
-            "sugars": 42,
-            "protein": 6,
-            "caffeine": 100,
-            "cholesterol": 40,
-            "fat": 14
-        },
-        {
-            "size": "venti",
-            "capacity": 700,
-            "kcal": 340,
-            "sodium": 180,
-            "sugars": 42,
-            "protein": 6,
-            "caffeine": 100,
-            "cholesterol": 40,
-            "fat": 14
-        }
-    ]
-}
+[
+    {
+        "name": "망고 플랫치노",
+        "name_en": "Mango Flatccino",
+        "sortName": "망고 플랫치노",
+        "desc": "열대과일인 망고의 달콤하고 진한 맛을 그대로 담아낸 여름철 인기 메뉴",
+        "brand": "ediya",
+        "type": "ice",
+        "thumbnail": "https://ediya.com/files/menu/IMG_1647322193229.png",
+        "category": "frappe",
+        "sizes": [{ "name": "R", "capacity": 414, "unit": "ml" }],
+        "prices": [{ "size": "R", "price": 3900 }],
+        "allergies": [],
+        "cautions": [],
+        "report": [
+            {
+                "size": "R",
+                "capacity": 414,
+                "unit": "ml",
+                "kcal": 258,
+                "sugar": 65,
+                "protein": 0,
+                "saturatedFat": 0,
+                "sodium": 8,
+                "caffeine": 0
+            }
+        ]
+    },
+    {
+        "name": "꿀복숭아 플랫치노",
+        "name_en": "Peach Flatccino",
+        "sortName": "꿀복숭아 플랫치노",
+        "desc": "복숭아의 리얼한 풍미와 꿀의 달콤함이 최적의 조화를 이룬 달콤하고 시원한 플랫치노",
+        "brand": "ediya",
+        "type": "ice",
+        "thumbnail": "https://ediya.com/files/menu/IMG_1647322170791.png",
+        "category": "frappe",
+        "sizes": [{ "name": "R", "capacity": 414, "unit": "ml" }],
+        "prices": [{ "size": "R", "price": 3900 }],
+        "allergies": ["peach"],
+        "cautions": [],
+        "report": [
+            {
+                "size": "R",
+                "capacity": 414,
+                "unit": "ml",
+                "kcal": 225,
+                "sugar": 49,
+                "protein": 0,
+                "saturatedFat": 0,
+                "sodium": 9,
+                "caffeine": 0
+            }
+        ]
+    },
+    {
+        "name": "초콜릿 칩 플랫치노",
+        "name_en": "Chocolate Chip Flatccino",
+        "sortName": "초콜릿 칩 플랫치노",
+        "desc": "트리플 모카시럽에 초콜릿 칩이 더해져 씹는 재미가 있는 달콤한 플랫치노",
+        "brand": "ediya",
+        "type": "ice",
+        "thumbnail": "https://ediya.com/files/menu/IMG_1647322237789.png",
+        "category": "frappe",
+        "sizes": [{ "name": "R", "capacity": 414, "unit": "ml" }],
+        "prices": [{ "size": "R", "price": 4500 }],
+        "allergies": ["milk", "bean"],
+        "cautions": [],
+        "report": [
+            {
+                "size": "R",
+                "capacity": 414,
+                "unit": "ml",
+                "kcal": 387,
+                "sugar": 42,
+                "protein": 7,
+                "saturatedFat": 16,
+                "sodium": 140,
+                "caffeine": 27
+            }
+        ]
+    },
+    {
+        "name": "민트 초콜릿 칩 플랫치노",
+        "name_en": "Mint Chocolate Chip Flatccino",
+        "sortName": "민트 초콜릿 칩 플랫치노",
+        "desc": "진한 민트향이 더해진 초코렛에 초콜렛칩이 가득 들어있는 젊은 감성의 이디야 플랫치노",
+        "brand": "ediya",
+        "type": "ice",
+        "thumbnail": "https://ediya.com/files/menu/IMG_1647322244409.png",
+        "category": "frappe",
+        "sizes": [{ "name": "R", "capacity": 414, "unit": "ml" }],
+        "prices": [{ "size": "R", "price": 4500 }],
+        "allergies": ["milk", "bean"],
+        "cautions": ["caffeine"],
+        "report": [
+            {
+                "size": "R",
+                "capacity": 414,
+                "unit": "ml",
+                "kcal": 493,
+                "sugar": 52,
+                "protein": 7,
+                "saturatedFat": 22,
+                "sodium": 168,
+                "caffeine": 56
+            }
+        ]
+    },
+    {
+        "name": "플레인 요거트 플랫치노",
+        "name_en": "Plain Yogurt Flatccino",
+        "sortName": "플레인 요거트 플랫치노",
+        "desc": "요거트 고유의 새콤달콤한 맛을 그대로 살린 메뉴로 여성들에게 인기가 좋은 음료",
+        "brand": "ediya",
+        "type": "ice",
+        "thumbnail": "https://ediya.com/files/menu/IMG_1647322311675.png",
+        "category": "frappe",
+        "sizes": [{ "name": "R", "capacity": 414, "unit": "ml" }],
+        "prices": [{ "size": "R", "price": 4500 }],
+        "allergies": ["milk"],
+        "cautions": [],
+        "report": [
+            {
+                "size": "R",
+                "capacity": 414,
+                "unit": "ml",
+                "kcal": 229,
+                "sugar": 32,
+                "protein": 7,
+                "saturatedFat": 32,
+                "sodium": 78,
+                "caffeine": 0
+            }
+        ]
+    },
+    {
+        "name": "블루베리 요거트 플랫치노",
+        "name_en": "Blueberry Yogurt Flatccino",
+        "sortName": "블루베리 요거트 플랫치노",
+        "desc": "블루베리 본연의 맛과 상큼한 요거트의 조화를 이룬 새콤달콤한 요거트 플랫치노",
+        "brand": "ediya",
+        "type": "ice",
+        "thumbnail": "https://ediya.com/files/menu/IMG_1647322319410.png",
+        "category": "frappe",
+        "sizes": [{ "name": "R", "capacity": 414, "unit": "ml" }],
+        "prices": [{ "size": "R", "price": 4700 }],
+        "allergies": ["milk", "bean"],
+        "cautions": [],
+        "report": [
+            {
+                "size": "R",
+                "capacity": 414,
+                "unit": "ml",
+                "kcal": 297,
+                "sugar": 47,
+                "protein": 7,
+                "saturatedFat": 32,
+                "sodium": 78,
+                "caffeine": 0
+            }
+        ]
+    },
+    {
+        "name": "딸기 요거트 플랫치노",
+        "name_en": "Strawberry Yogurt Flatccino",
+        "sortName": "딸기 요거트 플랫치노",
+        "desc": "남녀노소 누구나 좋아하는 딸기와 상큼한 요거트가 조화롭게 어우러진 플랫치노",
+        "brand": "ediya",
+        "type": "ice",
+        "thumbnail": "https://ediya.com/files/menu/IMG_1647319753205.png",
+        "category": "frappe",
+        "sizes": [{ "name": "R", "capacity": 414, "unit": "ml" }],
+        "prices": [{ "size": "R", "price": 4700 }],
+        "allergies": ["milk"],
+        "cautions": [],
+        "report": [
+            {
+                "size": "R",
+                "capacity": 414,
+                "unit": "ml",
+                "kcal": 313,
+                "sugar": 53,
+                "protein": 7,
+                "saturatedFat": 32,
+                "sodium": 83,
+                "caffeine": 0
+            }
+        ]
+    }
+]

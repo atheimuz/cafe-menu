@@ -1,21 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import dynamic from "next/dynamic";
 import { convertTitleAndUnit } from "@/utils/menu";
 import { convertBrandName } from "@/utils/brand";
 import ItemTitle from "@/components/ItemTitle";
-import styles from "./Report.module.scss";
-
-const Tab = dynamic(
-    () => import("@atheimuz/react-ui").then((mod) => mod.Tab<number>),
-    { ssr: false }
-);
-
-const TabItem = dynamic(
-    () => import("@atheimuz/react-ui").then((mod) => mod.Tab.Item),
-    { ssr: false }
-);
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Separator } from "@/components/ui/separator";
 
 interface Props {
     brandName: string;
@@ -26,47 +16,57 @@ const Report = ({ brandName, report }: Props) => {
 
     if (!report?.length)
         return (
-            <div className={styles.wrapper}>
+            <div className="px-4 py-4">
                 <ItemTitle>영양 성분</ItemTitle>
-                <p className={styles.empty}>
+                <p className="text-xs text-muted-foreground">
                     브랜드에서 정보를 제공하고 있지 않아요
                 </p>
             </div>
         );
 
     return (
-        <div className={styles.wrapper}>
-            <Tab
-                value={index}
-                onChange={(value: number) => setIndex(value)}
-                className={styles.sizes}
-            >
-                {report.map((item, sizeIndex) => (
-                    <TabItem key={item.size} value={sizeIndex}>
-                        {item.size}
-                    </TabItem>
-                ))}
-            </Tab>
-            <ul>
+        <div className="px-4 py-4">
+            <ItemTitle>영양 성분</ItemTitle>
+            {report.length > 1 && (
+                <Tabs
+                    value={String(index)}
+                    onValueChange={(val) => setIndex(Number(val))}
+                    className="mb-3"
+                >
+                    <TabsList className="h-8">
+                        {report.map((item, sizeIndex) => (
+                            <TabsTrigger
+                                key={String(item.size)}
+                                value={String(sizeIndex)}
+                                className="text-xs px-3"
+                            >
+                                {item.size}
+                            </TabsTrigger>
+                        ))}
+                    </TabsList>
+                </Tabs>
+            )}
+            <ul className="space-y-0">
                 {Object.entries(report[index]).map(([key, value]) => {
                     const { title, unit } = convertTitleAndUnit(key);
                     if (!title) return null;
                     return (
-                        <li className={styles.reportItem} key={key}>
-                            <dl className={styles.reportItemInner}>
-                                <dt>{title}</dt>
-                                <dd>
+                        <li key={key}>
+                            <div className="flex items-center justify-between py-2.5 text-sm">
+                                <dt className="text-muted-foreground">{title}</dt>
+                                <dd className={`font-medium ${key === "calorie" ? "text-[#FF6F00] font-bold text-base" : ""}`}>
                                     {value}
                                     {key === "capacity"
                                         ? report[index].unit
                                         : unit}
                                 </dd>
-                            </dl>
+                            </div>
+                            <Separator />
                         </li>
                     );
                 })}
             </ul>
-            <p className={styles.caution}>
+            <p className="text-[11px] text-muted-foreground mt-3">
                 * 출처: {convertBrandName(brandName)} 공식 홈페이지(앱)
             </p>
         </div>

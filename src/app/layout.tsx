@@ -1,7 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import QueryProvider from "@/components/QueryProvider";
 import "./globals.css";
-import "react-loading-skeleton/dist/skeleton.css";
 
 export const metadata = {
     title: "카페 칼로리 - 프랜차이즈 음료 영양 정보",
@@ -11,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="ko">
             <head>
                 <meta property="og:site_name" content="카페 칼로리" />
                 <meta
@@ -32,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     content="57156b37130fe1ffc9fef28a44b6890435ac5dc0"
                 />
             </head>
-            <body>
+            <body className="font-sans">
                 <QueryProvider>{children}</QueryProvider>
                 <Analytics />
             </body>

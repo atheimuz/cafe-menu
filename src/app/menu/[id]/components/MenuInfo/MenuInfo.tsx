@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { getMenuAPI } from "@/lib/remote/menu";
 import Loading from "@/components/Loading";
-import ErrorMessage from "@/components/ErrorMessage";
 import Summary from "@/app/menu/[id]/components/Summary";
 import Detail from "@/app/menu/[id]/components/Detail";
 import DetailSkeleton from "@/app/menu/[id]/components/Detail/DetailSkeleton";
@@ -10,7 +9,7 @@ import RelatedMenuList from "@/app/menu/[id]/components/RelatedMenuList";
 import RelatedMenuListSkeleton from "@/app/menu/[id]/components/RelatedMenuList/RelatedMenuListSkeleton";
 import Report from "@/app/menu/[id]/components/Report";
 import Price from "@/app/menu/[id]/components/Price";
-import styles from "./MenuInfo.module.scss";
+import { Separator } from "@/components/ui/separator";
 
 export interface Props {
     id: string;
@@ -18,12 +17,8 @@ export interface Props {
 const MenuInfo = async ({ id }: Props) => {
     const data = await getMenuAPI(id);
 
-    if ("error" in data) {
-        return <ErrorMessage>메뉴 정보를 불러오지 못했어요</ErrorMessage>;
-    }
-
     return (
-        <div className={styles.wrapper}>
+        <div>
             <Suspense fallback={<SummarySkeleton />}>
                 <Summary
                     type={data?.type}
@@ -36,6 +31,7 @@ const MenuInfo = async ({ id }: Props) => {
             <Suspense fallback={<RelatedMenuListSkeleton />}>
                 <RelatedMenuList items={data?.relatedMenus} />
             </Suspense>
+            <Separator className="mx-4 w-auto" />
             <Suspense fallback={<DetailSkeleton />}>
                 <Detail
                     desc={data?.desc}
@@ -45,6 +41,7 @@ const MenuInfo = async ({ id }: Props) => {
                     <Price prices={data?.prices} />
                 </Detail>
             </Suspense>
+            <Separator className="mx-4 w-auto" />
             <Suspense fallback={<Loading />}>
                 <Report brandName={data?.brand?.name} report={data?.report} />
             </Suspense>

@@ -1,13 +1,14 @@
-import Skeleton from "react-loading-skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 import PriceSkeleton from "@/app/menu/[id]/components/Price/PriceSkeleton";
-import styles from "./Detail.module.scss";
 
 const DetailSkeleton = () => {
     return (
-        <div className={styles.wrapper}>
-            <h2 className={styles.desc}>
-                <Skeleton count={3} />
-            </h2>
+        <div className="px-4 py-4 space-y-4">
+            <div className="space-y-1.5">
+                <Skeleton className="h-3 w-full" />
+                <Skeleton className="h-3 w-4/5" />
+                <Skeleton className="h-3 w-3/5" />
+            </div>
             <PriceSkeleton />
         </div>
     );

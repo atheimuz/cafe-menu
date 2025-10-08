@@ -1,15 +1,8 @@
-"use client";
-
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import Image from "next/image";
+import { ChevronRight } from "lucide-react";
 import { convertBrandName } from "@/utils/brand";
-import { CgChevronRight } from "react-icons/cg";
-import styles from "./Summary.module.scss";
-
-const Tag = dynamic(() => import("@atheimuz/react-ui").then((mod) => mod.Tag), {
-    ssr: false
-});
+import { Badge } from "@/components/ui/badge";
 
 interface Props {
     type: "ice" | "hot";
@@ -20,33 +13,34 @@ interface Props {
 }
 const Summary = ({ type, name, name_en, thumbnail, brand }: Props) => {
     return (
-        <div className={styles.wrapper}>
+        <div className="flex items-start gap-4 px-4 py-5">
             <Image
                 src={thumbnail}
-                className={styles.cover}
-                width={110}
-                height={110}
+                className="rounded-2xl object-cover shrink-0 shadow-soft"
+                width={100}
+                height={100}
                 alt="제품 사진"
             />
-            <div className={styles.text}>
-                <Link className={styles.brand} href={`/brand/${brand?._id}`}>
+            <div className="flex-1 min-w-0 pt-1">
+                <Link
+                    className="inline-flex items-center gap-0.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                    href={`/brand/${brand?._id}`}
+                >
                     {convertBrandName(brand?.name)}
-                    <CgChevronRight />
+                    <ChevronRight className="h-3 w-3" />
                 </Link>
-                <h1 className={styles.title}>
-                    {name}
-                    <span>{name_en}</span>
-                </h1>
-                <div className={styles.tag}>
+                <h1 className="text-lg font-bold mt-1 leading-tight">{name}</h1>
+                <span className="text-xs text-muted-foreground">{name_en}</span>
+                <div className="mt-2">
                     {type === "ice" && (
-                        <Tag size="medium" color="blue">
+                        <Badge variant="pastelBlue">
                             차가운 음료
-                        </Tag>
+                        </Badge>
                     )}
                     {type === "hot" && (
-                        <Tag size="medium" color="red">
+                        <Badge variant="pastelRed">
                             따뜻한 음료
-                        </Tag>
+                        </Badge>
                     )}
                 </div>
             </div>

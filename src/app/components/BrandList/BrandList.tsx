@@ -3,7 +3,6 @@ import { convertBrandName } from "@/utils/brand";
 import { brandLogoSrc, brandColor } from "@/schema/brand";
 import { getBrandsAPI } from "@/lib/remote/brand";
 import ErrorMessage from "@/components/ErrorMessage";
-import styles from "./BrandList.module.scss";
 
 const BrandList = async () => {
     const data = await getBrandsAPI();
@@ -13,30 +12,34 @@ const BrandList = async () => {
     }
 
     return (
-        <div className={styles.wrapper}>
-            <ul className={styles.items}>
+        <div className="px-4 mt-4">
+            <ul className="grid grid-cols-2 gap-3">
                 {data?.list?.map((item) => (
-                    <li key={item._id} className={styles.item}>
+                    <li key={item._id}>
                         <Link
                             href={`/brand/${item._id}`}
-                            className={styles.brand}
                             prefetch
+                            className="flex items-center justify-between rounded-2xl px-4 py-5 shadow-soft-sm transition-all duration-150 hover:opacity-90 active:scale-[0.97]"
                             style={{
                                 backgroundColor: brandColor[item.name].background,
                                 color: brandColor[item.name].text
                             }}
                         >
-                            <p className={styles.brandName}>{convertBrandName(item.name)}</p>
+                            <p className="text-sm font-semibold leading-tight">
+                                {convertBrandName(item.name)}
+                            </p>
                             <img
                                 src={brandLogoSrc[item.name]}
                                 alt={`${item.name} 로고`}
-                                className={styles.brandLogo}
+                                className="h-10 w-10 rounded-full object-contain bg-white/20"
                             />
                         </Link>
                     </li>
                 ))}
             </ul>
-            <p className={styles.caution}>* 더 다양한 브랜드들이 추가될 예정이에요</p>
+            <p className="text-xs text-muted-foreground text-center mt-4">
+                * 더 다양한 브랜드들이 추가될 예정이에요
+            </p>
         </div>
     );
 };

@@ -1,6 +1,6 @@
+import { ExternalLink } from "lucide-react";
 import { convertBrandName } from "@/utils/brand";
 import { brandLogoSrc } from "@/schema/brand";
-import styles from "./BrandName.module.scss";
 
 interface Props {
     name: string;
@@ -8,15 +8,23 @@ interface Props {
 }
 const BrandName = ({ name, link }: Props) => {
     return (
-        <div className={styles.wrapper}>
+        <div className="flex items-center gap-3 px-4 py-5">
             <img
                 src={brandLogoSrc[name]}
                 alt={`${convertBrandName(name)} 로고`}
-                className={styles.icon}
+                className="h-10 w-10 rounded-full object-contain"
             />
-            <h1 className={styles.brand}>{convertBrandName(name)}</h1>
-            <a className={styles.link} href={link} target="_blank">
+            <div className="flex-1">
+                <h1 className="text-lg font-bold">{convertBrandName(name)}</h1>
+            </div>
+            <a
+                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 공식 홈페이지
+                <ExternalLink className="h-3 w-3" />
             </a>
         </div>
     );

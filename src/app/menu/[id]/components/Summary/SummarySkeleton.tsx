@@ -1,18 +1,14 @@
-import Skeleton from "react-loading-skeleton";
-import styles from "./Summary.module.scss";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const SummarySkeleton = () => {
     return (
-        <div className={styles.wrapper}>
-            <Skeleton width={110} height={110} className={styles.cover} />
-            <div className={styles.text}>
-                <Skeleton className={styles.brand} />
-                <div className={styles.title}>
-                    <Skeleton />
-                    <span>
-                        <Skeleton />
-                    </span>
-                </div>
+        <div className="flex items-start gap-4 px-4 py-5">
+            <Skeleton className="h-[100px] w-[100px] rounded-2xl shrink-0" />
+            <div className="flex-1 pt-1 space-y-2">
+                <Skeleton className="h-3 w-20" />
+                <Skeleton className="h-5 w-40" />
+                <Skeleton className="h-3 w-32" />
+                <Skeleton className="h-5 w-16 rounded-full" />
             </div>
         </div>
     );

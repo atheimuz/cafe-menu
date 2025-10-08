@@ -1,0 +1,17 @@
+{
+    "name": "ediya",
+    "options": [
+        {
+            "type": "caffeine",
+            "options": ["decaf"]
+        },
+        {
+            "type": "milk",
+            "options": ["oats"]
+        },
+        {
+            "type": "sugar",
+            "options": ["caramel", "vanilla", "hazelnut"]
+        }
+    ]
+}

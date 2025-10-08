@@ -1,13 +1,13 @@
-import Skeleton from "react-loading-skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 import ItemTitle from "@/components/ItemTitle";
-import styles from "./Price.module.scss";
 
 const PriceSkeleton = () => {
     return (
-        <div className={styles.wrapper}>
+        <div>
             <ItemTitle>가격</ItemTitle>
-            <div className={styles.skeleton}>
-                <Skeleton count={2} />
+            <div className="space-y-1.5">
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-full" />
             </div>
         </div>
     );

@@ -1,33 +1,14 @@
-import Skeleton from "react-loading-skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 import ItemTitle from "@/components/ItemTitle";
-import styles from "./Options.module.scss";
 
 const OptionsSkeleton = () => {
     return (
-        <div className={styles.wrapper}>
+        <div className="px-4 pb-4">
             <ItemTitle>옵션 제공</ItemTitle>
-
-            <div className={styles.scrollArea}>
-                <ul className={styles.options}>
-                    {[0, 1].map((number) => (
-                        <li className={styles.option} key={number}>
-                            <Skeleton
-                                width={30}
-                                height={30}
-                                className={styles.icon}
-                                circle
-                            />
-                            <dl>
-                                <dt>
-                                    <Skeleton />
-                                </dt>
-                                <dd>
-                                    <Skeleton />
-                                </dd>
-                            </dl>
-                        </li>
-                    ))}
-                </ul>
+            <div className="flex gap-3">
+                {[0, 1].map((number) => (
+                    <Skeleton key={number} className="h-24 w-[140px] rounded-2xl shrink-0" />
+                ))}
             </div>
         </div>
     );

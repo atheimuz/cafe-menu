@@ -1,19 +1,14 @@
 import ItemTitle from "@/components/ItemTitle";
 import RelatedMenuItemSkeleton from "@/components/RelatedMenuItem/RelatedMenuItemSkeleton";
-import styles from "./RelatedMenuList.module.scss";
 
 const RelatedMenuListSkeleton = () => {
     return (
-        <div className={styles.wrapper}>
+        <div className="px-4 py-4">
             <ItemTitle>연관 상품</ItemTitle>
-            <div className={styles.scrollArea}>
-                <ul className={styles.items}>
-                    {[0, 1].map((item) => (
-                        <li key={item}>
-                            <RelatedMenuItemSkeleton />
-                        </li>
-                    ))}
-                </ul>
+            <div className="flex gap-4">
+                {[0, 1].map((item) => (
+                    <RelatedMenuItemSkeleton key={item} />
+                ))}
             </div>
         </div>
     );

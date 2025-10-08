@@ -8,7 +8,6 @@ import Loading from "@/components/Loading";
 import ItemTitle from "@/components/ItemTitle";
 import MenuItem from "@/components/MenuItem";
 import Empty from "@/app/search/components/Empty";
-import styles from "./SearchedList.module.scss";
 
 interface Props {
     keyword?: string;
@@ -31,12 +30,12 @@ const SearchedList = ({ keyword }: Props) => {
     }
 
     return (
-        <div className={styles.wrapper}>
+        <div className="px-4 mt-2">
             <ItemTitle>검색 결과</ItemTitle>
-            <ul className={styles.items}>
+            <ul className="space-y-2">
                 {data.pages.map((page) =>
                     page?.list?.map((item: IMenuItem) => (
-                        <li className={styles.item} key={item._id}>
+                        <li key={item._id}>
                             <MenuItem {...item} />
                         </li>
                     ))

@@ -1,13 +1,12 @@
-import Skeleton from "react-loading-skeleton";
-import styles from "./BrandList.module.scss";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const BrandListSkeleton = () => {
     return (
-        <div className={styles.wrapper}>
-            <ul className={styles.items}>
+        <div className="px-4 mt-4">
+            <ul className="grid grid-cols-2 gap-3">
                 {new Array(8).fill(0).map((_, index) => (
-                    <li key={index} className={styles.item}>
-                        <Skeleton className={styles.brand} />
+                    <li key={index}>
+                        <Skeleton className="h-[72px] rounded-2xl" />
                     </li>
                 ))}
             </ul>
