@@ -1,12 +1,9 @@
-import { AiOutlineLoading } from "react-icons/ai";
-import styles from "./Loading.module.scss";
+import { Loader2 } from "lucide-react";
 
 const Loading = () => {
     return (
-        <div className={styles.wrapper}>
-            <span className={styles.icon}>
-                <AiOutlineLoading />
-            </span>
+        <div className="flex justify-center py-8">
+            <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
         </div>
     );
 };

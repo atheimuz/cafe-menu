@@ -1,11 +1,10 @@
-import { ImFileEmpty } from "react-icons/im";
-import styles from "./MenuItemEmpty.module.scss";
+import { FileX } from "lucide-react";
 
 const MenuItemEmpty = () => {
     return (
-        <div className={styles.wrapper}>
-            <ImFileEmpty className={styles.icon} />
-            <p className={styles.text}>메뉴가 없어요</p>
+        <div className="flex flex-col items-center justify-center py-16 text-muted-foreground">
+            <FileX className="h-10 w-10 mb-3" />
+            <p className="text-sm">메뉴가 없어요</p>
         </div>
     );
 };
